@@ -11,18 +11,19 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 0;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const int user_bh            = 25;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const int horizpadbar        = 2;        /* horizontal padding for statusbar */
 static const int vertpadbar         = 0;        /* vertical padding for statusbar */
-static const unsigned int baralpha = 0xbf;      /*0xff is opaque*/
+static const unsigned int baralpha = 0x66;      /*0xff is opaque*/
 static const unsigned int borderalpha = OPAQUE;
-static const char *fonts[]          = { "SFMono Nerd Font:size=11" };
+static const char *fonts[]          = { "SFMono Nerd Font:size=11", "Font Awesome 5 Free Solid:size=6" };
 static const char dmenufont[]       = "SFMono Nerd Font:size=11";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#479C3C";
+static const char col_cyan[]        = "#9F0BD9";
+/* static const char col_cyan[]        = "#4A05AB"; */
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -44,7 +45,7 @@ static const Rule rules[] = {
 	 */
 	/* class          instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "Gimp",         NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Firefox",      NULL,     NULL,           1,         0,          0,          -1,        -1 },
+	{ "Firefox",      NULL,     NULL,           0,         0,          0,          -1,        -1 },
 	{ "Alacritty",    NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,           NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 	/* { "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 }, */
@@ -84,16 +85,22 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenuopacity[4] = "0.65"; /* Values from 0 (transparent) to 1 (opaque) */
+static char dmenudim[4] = "0"; /* Values from 0 (transparent) to 1 (opaque) */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-s", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-o", dmenuopacity, NULL };
+static char dmenuheight[3] = "25";
+static const char *dmenucmd[] = { "dmenu_run", "-s", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-o", dmenuopacity, "-dim", dmenudim, "-h", dmenuheight, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *browsercmd[]  = { "firefox", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_slash,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
+	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
+	{ MODKEY,                       XK_e,      spawn,          SHCMD("emacs") },
+	{ MODKEY,                       XK_F1,     spawn,          SHCMD("redshift -O 3500") },
+	{ MODKEY,                       XK_F2,     spawn,          SHCMD("redshift -x") },
+	{ MODKEY|Mod1Mask,              XK_n,      spawn,          SHCMD("nitrogen") },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("pcmanfm") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	STACKKEYS(MODKEY,                          focus)
 	STACKKEYS(MODKEY|ShiftMask,                push)
@@ -108,8 +115,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
- 	{ MODKEY|ControlMask,           XK_space,  togglealwaysontop, {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+ 	{ MODKEY|ControlMask,           XK_period, togglealwaysontop, {0} },
+	{ MODKEY,                       XK_period, togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
