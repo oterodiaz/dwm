@@ -16,7 +16,7 @@ static const int horizpadbar        = 2;        /* horizontal padding for status
 static const int vertpadbar         = 0;        /* vertical padding for statusbar */
 static const unsigned int baralpha = 0x66;      /*0xff is opaque*/
 static const unsigned int borderalpha = OPAQUE;
-static const char *fonts[]          = { "SFMono Nerd Font:size=11", "Font Awesome 5 Free Solid:size=6" };
+static const char *fonts[]          = { "SFMono Nerd Font:size=11", "Apple Color Emoji:size=11", "Font Awesome 5 Free Solid:size=6" };
 static const char dmenufont[]       = "SFMono Nerd Font:size=11";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -50,7 +50,7 @@ static const Rule rules[] = {
 	 */
 	/* class          instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "Gimp",         NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Telegram",         NULL,     NULL,           0,         1,          0,           0,        -1 },
+	{ "Telegram",     NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "Firefox",      NULL,     NULL,           0,         0,          0,          -1,        -1 },
 	{ "Alacritty",    NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,           NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
