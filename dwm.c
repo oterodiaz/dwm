@@ -278,6 +278,7 @@ static void tag(const Arg *arg);
 static void tagmon(const Arg *arg);
 static void tile(Monitor *);
 static void togglebar(const Arg *arg);
+static void togglesystray();
 static void togglefloating(const Arg *arg);
 static void togglealwaysontop(const Arg *arg);
 static void toggletag(const Arg *arg);
@@ -2216,6 +2217,18 @@ togglebar(const Arg *arg)
 	}
 	arrange(selmon);
 }
+
+void
+togglesystray()
+{
+    if (showsystray) {
+               XUnmapWindow(dpy, systray->win);
+    }
+    showsystray = !showsystray;
+    updatesystray();
+    drawbar(selmon);
+}
+
 
 void
 togglefloating(const Arg *arg)
