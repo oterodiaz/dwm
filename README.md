@@ -14,18 +14,19 @@ Here's the list of all the patches I have applied and my reasoning to do so.
 Some of the patches need some manual tinkering to work together. If you are trying to build your own `dwm` fork you can go see the [commits](https://gitlab.com/Nero20/dwm/-/commits/master) in this repository to find how I dealt with some of those incompatibilities between patches.
 You can find these and other patches and instructions on how to apply them on suckless's website [here](https://dwm.suckless.org/patches/).
 
-+ systray        - I use a few programs that need a systray (Unfortunately, since this is the patch that has caused the most trouble)
-+ attachbottom   - New windows are no longer the master, and get inserted on the bottom of the stack, as they should (sue me)
-+ restartsig     - No more `killall dwm` and `startx` needed
-+ swallow        - Now I don't have a useless terminal taking up half the screen when I open `mpv`
-+ fullgaps       - I like my useless gaps around windows (I'll probably replace this with `ru gaps` though)
-+ stacker        - I hate not being able to move windows through the stack, so now I can
-+ alpha          - Can't live without that blurring effect (You'll need picom for the blur, this just makes the bar transparent)
-+ statuspadding  - Just makes things prettier
-+ bar height     - See above ^
-+ alwaysontop    - Self explanatory. I don't use it much, but it's nice to have
-+ cool autostart - I just prefer having `dwm` run stuff on launch rather than using xinit or something like that
-+ cfacts         - Makes windows bigger or smaller in the stack. It's useful
++ systray               - I use a few programs that need a systray (Unfortunately, since this is the patch that has caused the most trouble)
++ attachbottom          - New windows are no longer the master and get inserted on the bottom of the stack, as they should (sue me)
++ restartsig            - No more `killall dwm` and `startx` needed
++ swallow               - Now I don't have a useless terminal taking up half the screen when I open `mpv`
++ fullgaps-toggle       - I like my useless gaps around windows
++ stacker               - I hate not being able to move windows through the stack
++ alpha                 - Can't live without that blurring effect (You'll need picom for the blur, this just makes the bar transparent)
++ statuspadding         - Just makes things prettier
++ bar height            - See above ^
++ alwaysontop           - Self explanatory. I don't use it much, but it's nice to have
++ cool autostart        - I just prefer having `dwm` run stuff on launch rather than using xinit or something like that
++ cfacts                - Makes windows bigger or smaller in the stack. It's useful
++ centeredmaster-cfacts - Cool layout with cfacts support. I also managed to make it work with fullgaps-toggle, which makes it extra cool (I *really* like those gaps)
 
 # Dependencies
 You will need the following packages in order to build this fork:
