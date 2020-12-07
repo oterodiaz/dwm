@@ -19,7 +19,7 @@ You can find these and other patches and instructions on how to apply them on su
 + restartsig     - No more `killall dwm` and `startx` needed
 + swallow        - Now I don't have a useless terminal taking up half the screen when I open `mpv`
 + fullgaps       - I like my useless gaps around windows (I'll probably replace this with `ru gaps` though)
-+ stacker        - I hate not being able to move windows throught the stack, so now I can
++ stacker        - I hate not being able to move windows through the stack, so now I can
 + alpha          - Can't live without that blurring effect (You'll need picom for the blur, this just makes the bar transparent)
 + statuspadding  - Just makes things prettier
 + bar height     - See above ^
