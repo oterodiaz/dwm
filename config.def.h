@@ -158,11 +158,11 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,        {0} },
 	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },  /* Restart dwm*/
-	{ 0,                       0x1008ff13,      spawn,          SHCMD("amixer sset 'Master' 5%+") },    /* Keycode for XF86AudioRaiseVolume */
-	{ ShiftMask,               0x1008ff13,      spawn,          SHCMD("amixer sset 'Master' 100%") },   /* Keycode for XF86AudioRaiseVolume */
-	{ 0,                       0x1008ff11,      spawn,          SHCMD("amixer sset 'Master' 5%-") },    /* Keycode for XF86AudioLowerVolume */
-	{ ShiftMask,               0x1008ff11,      spawn,          SHCMD("amixer sset 'Master' 50%") },    /* Keycode for XF86AudioRaiseVolume */
-	{ 0,                       0x1008ff12,      spawn,          SHCMD("amixer sset 'Master' toggle") }, /* Keycode for XF86AudioMute */
+	{ 0,                       0x1008ff13,      spawn,          SHCMD("amixer sset 'Master' 5%+ && kill -44 $(pidof dwmblocks)") },    /* Keycode for XF86AudioRaiseVolume */
+	{ ShiftMask,               0x1008ff13,      spawn,          SHCMD("amixer sset 'Master' 100% && kill -44 $(pidof dwmblocks)") },   /* Keycode for XF86AudioRaiseVolume */
+	{ 0,                       0x1008ff11,      spawn,          SHCMD("amixer sset 'Master' 5%- && kill -44 $(pidof dwmblocks)") },    /* Keycode for XF86AudioLowerVolume */
+	{ ShiftMask,               0x1008ff11,      spawn,          SHCMD("amixer sset 'Master' 50% && kill -44 $(pidof dwmblocks)") },    /* Keycode for XF86AudioRaiseVolume */
+	{ 0,                       0x1008ff12,      spawn,          SHCMD("amixer sset 'Master' toggle && kill -44 $(pidof dwmblocks)") }, /* Keycode for XF86AudioMute */
 };
 
 /* button definitions */
