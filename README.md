@@ -40,8 +40,8 @@ You will need the following packages in order to build this fork:
 
 I also use these fonts, which I'd rather not provide you with due to licensing (hint: use the internet)
 
-+ SFMono (font)
-+ SFMono Nerd Font (font)
++ SFMono
++ SFMono Nerd Font
 
 And a few utilities like `dwmblocks`, `redshift` or `amixer` and personal scripts that you can find on my [dotfiles repository](https://gitlab.com/Nero20/dotfiles-linux).
 
