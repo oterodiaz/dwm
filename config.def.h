@@ -36,6 +36,7 @@ static const unsigned int alphas[][3]      = {
 };
 
 static const char *const autostart[] = {
+    "dwmblocks", NULL,
 	"/home/diego/.config/dwm/autostart.sh", NULL,
 	NULL /* terminate */
 };
@@ -81,7 +82,7 @@ static const Layout layouts[] = {
 	{ MOD, XK_j,     ACTION##stack, {.i = INC(+1) } }, \
 	{ MOD, XK_k,     ACTION##stack, {.i = INC(-1) } }, \
 	{ MOD, XK_grave, ACTION##stack, {.i = PREVSEL } }, \
-	{ MOD, XK_s,     ACTION##stack, {.i = 0 } }, \
+	{ MOD, XK_a,     ACTION##stack, {.i = 0 } }, \
 	{ MOD, XK_a,     ACTION##stack, {.i = 1 } }, \
 	{ MOD, XK_z,     ACTION##stack, {.i = 2 } }, \
 	{ MOD, XK_x,     ACTION##stack, {.i = -1 } },
@@ -108,6 +109,10 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,              XK_n,      spawn,          SHCMD("nitrogen") },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("pcmanfm") },
 	{ MODKEY,                       XK_t,      spawn,          SHCMD("telegram-desktop") },
+	{ MODKEY,                       XK_s,      spawn,          SHCMD("/home/diego/.config/dwm/Screenshots/screenshot.fish --area-clipboard") },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("/home/diego/.config/dwm/Screenshots/screenshot.fish --screen-clipboard") },
+	{ Mod1Mask,                     XK_s,      spawn,          SHCMD("/home/diego/.config/dwm/Screenshots/screenshot.fish --area-file") },
+	{ Mod1Mask|ShiftMask,           XK_s,      spawn,          SHCMD("/home/diego/.config/dwm/Screenshots/screenshot.fish --screen-file") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_b,      togglesystray,  {0} },
 	STACKKEYS(MODKEY,                          focus)
