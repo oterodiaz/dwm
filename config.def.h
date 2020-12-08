@@ -23,7 +23,6 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#9F0BD9";
-/* static const char col_cyan[]        = "#4A05AB"; */
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -115,6 +114,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("/home/diego/Scripts/screenshot.fish --screen-clipboard") },
 	{ Mod1Mask,                     XK_s,      spawn,          SHCMD("/home/diego/Scripts/screenshot.fish --area-file") },
 	{ Mod1Mask|ShiftMask,           XK_s,      spawn,          SHCMD("/home/diego/Scripts/screenshot.fish --screen-file") },
+	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("slock -m \"Locked at $(date '+%a %d, %H:%M:%S')\"") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_b,      togglesystray,  {0} },
 	STACKKEYS(MODKEY,                          focus)
