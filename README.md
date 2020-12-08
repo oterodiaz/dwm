@@ -27,6 +27,7 @@ You can find these and other patches and instructions on how to apply them on su
 + cool autostart        - I just prefer having `dwm` run stuff on launch rather than using xinit or something like that
 + cfacts                - Makes windows bigger or smaller in the stack. It's useful
 + centeredmaster-cfacts - Cool layout with cfacts support. I also managed to make it work with fullgaps-toggle, which makes it extra cool (I *really* like those gaps)
++ pertag                - I want to be able to change every tag's layout independently from the rest
 
 # Dependencies
 You will need the following packages in order to build this fork:
