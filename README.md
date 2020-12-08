@@ -28,6 +28,7 @@ You can find these and other patches and instructions on how to apply them on su
 + cfacts                - Makes windows bigger or smaller in the stack. It's useful
 + centeredmaster-cfacts - Cool layout with cfacts support. I also managed to make it work with fullgaps-toggle, which makes it extra cool (I *really* like those gaps)
 + pertag                - I want to be able to change every tag's layout independently from the rest
++ smartborders          - No need for borders when there's just one window
 
 # Dependencies
 You will need the following packages in order to build this fork:
