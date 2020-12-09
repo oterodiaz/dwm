@@ -3134,7 +3134,7 @@ main(int argc, char *argv[])
 void
 centeredmaster(Monitor *m)
 {
-	unsigned int i, n, h, mw, mx, my, oty, ety, tw;
+	unsigned int i, n, h, mw, mx, my, oty, ety, tw, bw;
 	float mfacts = 0, lfacts = 0, rfacts = 0;
 	Client *c;
 
@@ -3150,10 +3150,12 @@ centeredmaster(Monitor *m)
 	if (n == 0)
 		return;
 	if(n == 1){
+        bw = 0;
 		c = nexttiled(m->clients);
-		resize(c, m->wx + m->gap->gappx, m->wy + m->gap->gappx, m->ww - 2 * (c->bw + m->gap->gappx), m->wh - 2 * (c->bw + m->gap->gappx), c->bw, 0);
+		resize(c, m->wx + m->gap->gappx, m->wy + m->gap->gappx, m->ww - 2 * (bw + m->gap->gappx), m->wh - 2 * (bw + m->gap->gappx), bw, 0);
 		return;
-	}
+	} else
+        bw = borderpx;
 
 	/* initialize areas */
 	mw = m->ww;
@@ -3181,12 +3183,12 @@ centeredmaster(Monitor *m)
 		 * of the screen */
 		h = (m->wh - my) * (c->cfact / mfacts);
 		if (m->nmaster >= n)
-			resize(c, m->wx + mx + m->gap->gappx, m->wy + my, mw - 2*(c->bw + m->gap->gappx),
-				   h - (2*c->bw) - m->gap->gappx, c->bw, 0);
+			resize(c, m->wx + mx + m->gap->gappx, m->wy + my, mw - 2*(bw + m->gap->gappx),
+				   h - (2*bw) - m->gap->gappx, bw, 0);
 		else if(m->nmaster + 1 < n)
-			resize(c, m->wx + mx + m->gap->gappx/2, m->wy + my, mw - 2*c->bw - m->gap->gappx, h - 2*c->bw - m->gap->gappx, c->bw, 0);
+			resize(c, m->wx + mx + m->gap->gappx/2, m->wy + my, mw - 2*bw - m->gap->gappx, h - 2*bw - m->gap->gappx, bw, 0);
 		else
- 			resize(c, m->wx + mx + m->gap->gappx, m->wy + my, mw - 2*c->bw - m->gap->gappx*3/2, h - 2*c->bw - m->gap->gappx, c->bw, 0);
+ 			resize(c, m->wx + mx + m->gap->gappx, m->wy + my, mw - 2*bw - m->gap->gappx*3/2, h - 2*bw - m->gap->gappx, bw, 0);
  		if(my + HEIGHT(c) + m->gap->gappx < m->mh)
 			my += HEIGHT(c) + m->gap->gappx;
 		mfacts -= c->cfact;
@@ -3195,18 +3197,18 @@ centeredmaster(Monitor *m)
 		if ((i - m->nmaster) % 2) {
 			h = (m->wh - ety) * (c->cfact / lfacts);
 			if(m->nmaster == 0)
-				resize(c, m->wx + m->gap->gappx, m->wy + ety, tw - (2*c->bw) - m->gap->gappx*3/2,
-			       h - 2*c->bw - m->gap->gappx, c->bw, 0);
+				resize(c, m->wx + m->gap->gappx, m->wy + ety, tw - (2*bw) - m->gap->gappx*3/2,
+			       h - 2*bw - m->gap->gappx, bw, 0);
 			else
-				resize(c, m->wx + m->gap->gappx, m->wy + ety, tw - (2*c->bw) - m->gap->gappx*3/2,
-			       h - 2*c->bw - m->gap->gappx, c->bw, 0);
+				resize(c, m->wx + m->gap->gappx, m->wy + ety, tw - (2*bw) - m->gap->gappx*3/2,
+			       h - 2*bw - m->gap->gappx, bw, 0);
 			if(ety + HEIGHT(c) + m->gap->gappx < m->mh)
 				ety += HEIGHT(c) + m->gap->gappx;
 			lfacts -= c->cfact;
 		} else {
 			h = (m->wh - oty) * (c->cfact / rfacts);
  			resize(c, m->wx + mx + mw + m->gap->gappx/2, m->wy + oty,
-				   tw - (2*c->bw) - m->gap->gappx*3/2, h - 2*c->bw - m->gap->gappx, c->bw, 0);
+				   tw - (2*bw) - m->gap->gappx*3/2, h - 2*bw - m->gap->gappx, bw, 0);
 			if(oty + HEIGHT(c) + m->gap->gappx < m->mh)
 				oty += HEIGHT(c) + m->gap->gappx;
 			rfacts -= c->cfact;
