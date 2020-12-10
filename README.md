@@ -30,6 +30,7 @@ You can find these and other patches and instructions on how to apply them on su
 + pertag                - I want to be able to change every tag's layout independently from the rest
 + smartborders          - No need for borders when there's just one window
 + actualfullscreen      - Make windows fullscreen without hiding the bar in monocle mode
++ fsignal               - Script dwm actions through signals
 
 # Dependencies
 You will need the following packages in order to build this fork:
