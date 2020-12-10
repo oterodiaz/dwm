@@ -116,6 +116,7 @@ static Key keys[] = {
 	{ Mod1Mask,                     XK_s,      spawn,          SHCMD("/home/diego/Scripts/screenshot.fish --area-file") },
 	{ Mod1Mask|ShiftMask,           XK_s,      spawn,          SHCMD("/home/diego/Scripts/screenshot.fish --screen-file") },
 	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("slock -m \"Locked at $(date '+%a %d, %H:%M:%S')\"") },
+	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("arcolinux-logout") },
     { MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_b,      togglesystray,  {0} },
@@ -158,7 +159,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,        {0} },
+	{ MODKEY|ShiftMask,             XK_BackSpace, quit,        {0} },
 	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },  /* Restart dwm*/
 	{ 0,                       0x1008ff13,      spawn,          SHCMD("amixer sset 'Master' 5%+ && kill -44 $(pidof dwmblocks)") },    /* Keycode for XF86AudioRaiseVolume */
 	{ ShiftMask,               0x1008ff13,      spawn,          SHCMD("amixer sset 'Master' 100% && kill -44 $(pidof dwmblocks)") },   /* Keycode for XF86AudioRaiseVolume */
