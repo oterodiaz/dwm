@@ -129,7 +129,7 @@ struct Client {
 	int basew, baseh, incw, inch, maxw, maxh, minw, minh;
 	int bw, oldbw;
 	unsigned int tags;
-	int isfixed, isfloating, isurgent, isalwaysontop, neverfocus, oldstate, isfullscreen, isterminal, noswallow;
+	int isfixed, isfloating, isurgent, isalwaysontop, neverfocus, oldstate, isfullscreen, isterminal, noswallow, launchfullscreen;
 	pid_t pid;
 	Client *next;
 	Client *snext;
@@ -195,6 +195,7 @@ typedef struct {
 	int isterminal;
 	int noswallow;
 	int monitor;
+    int launchfullscreen;
 } Rule;
 
 typedef struct Systray   Systray;
@@ -441,6 +442,7 @@ applyrules(Client *c)
 			c->isterminal = r->isterminal;
 			c->noswallow  = r->noswallow;
 			c->isfloating = r->isfloating;
+            c->launchfullscreen = r->launchfullscreen;
 			c->tags |= r->tags;
 			for (m = mons; m && m->num != r->monitor; m = m->next);
 			if (m)
@@ -2829,6 +2831,8 @@ updatewindowtype(Client *c)
 		setfullscreen(c, 1);
 	if (wtype == netatom[NetWMWindowTypeDialog])
 		c->isfloating = 1;
+	if (c->launchfullscreen)
+		setfullscreen(c, 1);
 }
 
 void
