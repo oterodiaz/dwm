@@ -53,7 +53,7 @@ static const Rule rules[] = {
 	{ "Telegram",     NULL,     NULL,           0,         1,          0,           0,        -1,           0 },
 	{ "Firefox",      NULL,     NULL,           0,         0,          0,          -1,        -1,           0 },
 	{ "Alacritty",    NULL,     NULL,           0,         0,          1,           0,        -1,           0 },
-	{ NULL,           NULL,     "Arcolinux",    0,         0,          0,           1,        -1,           1 },
+	{ NULL,           NULL,     "Arcolinux Logout",    0,         0,          0,           1,        -1,           1 },
 	{ NULL,           NULL,     "Event Tester", 0,         0,          0,           1,        -1,           0 }, /* xev */
 	/* { "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 }, */
 	/* { "St",      NULL,     NULL,           0,         0,          1,           0,        -1 }, */
@@ -106,8 +106,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("emacs") },
-	{ MODKEY,                       XK_F1,     spawn,          SHCMD("redshift -O 3500") },
-	{ MODKEY,                       XK_F2,     spawn,          SHCMD("redshift -x") },
+	{ MODKEY,                       XK_F1,     spawn,          SHCMD("redshift -P -O 3500 && fish -c 'set -Ux REDSHIFT_ON true'") },
+	{ MODKEY,                       XK_F2,     spawn,          SHCMD("redshift -x && fish -c 'set -Ux REDSHIFT_ON false'") },
 	{ MODKEY|Mod1Mask,              XK_n,      spawn,          SHCMD("nitrogen") },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("pcmanfm") },
 	{ MODKEY,                       XK_t,      spawn,          SHCMD("telegram-desktop") },
