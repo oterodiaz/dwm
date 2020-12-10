@@ -106,8 +106,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("emacs") },
-	{ MODKEY,                       XK_F1,     spawn,          SHCMD("redshift -P -O 3500 && fish -c 'set -Ux REDSHIFT_ON true'") },
-	{ MODKEY,                       XK_F2,     spawn,          SHCMD("redshift -x && fish -c 'set -Ux REDSHIFT_ON false'") },
+	{ MODKEY,                       XK_F1,     spawn,          SHCMD("redshift -P -O 3500 && fish -c 'set -Ux REDSHIFT_ON true' && kill -45 $(pidof dwmblocks)") },
+	{ MODKEY,                       XK_F2,     spawn,          SHCMD("redshift -x && fish -c 'set -Ux REDSHIFT_ON false' && kill -45 $(pidof dwmblocks)") },
 	{ MODKEY|Mod1Mask,              XK_n,      spawn,          SHCMD("nitrogen") },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("pcmanfm") },
 	{ MODKEY,                       XK_t,      spawn,          SHCMD("telegram-desktop") },
@@ -161,11 +161,27 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_BackSpace, quit,        {0} },
 	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },  /* Restart dwm*/
+    /* Increase volume */
 	{ 0,                       0x1008ff13,      spawn,          SHCMD("amixer sset 'Master' 5%+ && kill -44 $(pidof dwmblocks)") },    /* Keycode for XF86AudioRaiseVolume */
+    /* Set volume to 100% */
 	{ ShiftMask,               0x1008ff13,      spawn,          SHCMD("amixer sset 'Master' 100% && kill -44 $(pidof dwmblocks)") },   /* Keycode for XF86AudioRaiseVolume */
+    /* Decrease volume */
 	{ 0,                       0x1008ff11,      spawn,          SHCMD("amixer sset 'Master' 5%- && kill -44 $(pidof dwmblocks)") },    /* Keycode for XF86AudioLowerVolume */
+    /* Set volume to 50% */
 	{ ShiftMask,               0x1008ff11,      spawn,          SHCMD("amixer sset 'Master' 50% && kill -44 $(pidof dwmblocks)") },    /* Keycode for XF86AudioRaiseVolume */
+    /* Mute volume */
 	{ 0,                       0x1008ff12,      spawn,          SHCMD("amixer sset 'Master' toggle && kill -44 $(pidof dwmblocks)") }, /* Keycode for XF86AudioMute */
+    /* Decrease brightness */
+	{ 0,                       0x1008ff03,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -r -10 && kill -45 $(pidof dwmblocks)") },        /* Keycode for XF86MonBrightnessDown */
+    /* Increase brightness */
+	{ 0,                       0x1008ff02,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -r 10 && kill -45 $(pidof dwmblocks)") },         /* Keycode for XF86MonBrightnessUp */
+    /* Set brightness to 0% */
+	{ ShiftMask,               0x1008ff03,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -s 0 && kill -45 $(pidof dwmblocks)") },          /* Keycode for XF86MonBrightnessDown */
+    /* Set brightness to 100% */
+	{ ShiftMask,               0x1008ff02,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -s 100 && kill -45 $(pidof dwmblocks)") },        /* Keycode for XF86MonBrightnessUp */
+    /* Set brightness to 50% */
+	{ MODKEY,                  0x1008ff02,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },         /* Keycode for XF86MonBrightnessUp */
+	{ MODKEY,                  0x1008ff03,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },         /* Keycode for XF86MonBrightnessDown */
 };
 
 /* button definitions */
