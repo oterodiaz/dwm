@@ -16,7 +16,7 @@ static const int horizpadbar        = 2;        /* horizontal padding for status
 static const int vertpadbar         = 0;        /* vertical padding for statusbar */
 static const unsigned int baralpha = 0x66;      /*0xff is opaque*/
 static const unsigned int borderalpha = OPAQUE;
-static const char *fonts[]          = { "SFMono:size=11:style=Bold", "SFMono Nerd Font:size=13", "Apple Color Emoji:size=11" };
+static const char *fonts[]          = { "SFMono:size=11:style=Bold", "SFMono Nerd Font:size=14", "Apple Color Emoji:size=11" };
 static const char dmenufont[]       = "SFMono Nerd Font:size=11";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -41,7 +41,7 @@ static const char *const autostart[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
