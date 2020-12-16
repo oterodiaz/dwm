@@ -116,7 +116,7 @@ static Key keys[] = {
 	{ Mod1Mask,                     XK_s,      spawn,          SHCMD("/home/diego/Scripts/screenshot.fish --area-file") },
 	{ Mod1Mask|ShiftMask,           XK_s,      spawn,          SHCMD("/home/diego/Scripts/screenshot.fish --screen-file") },
 	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("slock -m \"Locked at $(date '+%a %d, %H:%M:%S')\"") },
-	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("arcolinux-logout") },
+	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("arcologout") },
     { MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_b,      togglesystray,  {0} },
