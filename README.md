@@ -1,5 +1,5 @@
 # dwm - dynamic window manager
-This is my fork of `dwm`, an extremely fast, small, and dynamic window manager for X. Go visit [suckless.org](https://suckless.org) to learn more about it and other wonderful programs that suck less, such as `dmenu` or `st`.
+This is my fork of `dwm` 6.2, an extremely fast, small, and dynamic window manager for X. Go visit [suckless.org](https://suckless.org) to learn more about it and other wonderful programs that suck less, such as `dmenu` or `st`.
 
 # Why fork it?
 Like all suckless programs `dwm` is built to be simple, minimal and usable. By default, `dwm` doesn't do that much more than to manage X windows, but I do miss some features, be it purely aesthetic or functional ones. This is why I keep this repository with a heavily patched version of `dwm` that suits my needs. You can find a list of all the patches that I have applied and my reasoning to do so further down in this document.
