@@ -320,6 +320,9 @@ static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void xinitvisual();
 static void zoom(const Arg *arg);
 static void centeredmaster(Monitor *m);
+static void fibonacci(Monitor *mon, int s);
+static void dwindle(Monitor *mon);
+static void spiral(Monitor *mon);
 static void centeredfloatingmaster(Monitor *m);
 static void autostart_exec(void);
 
@@ -3353,4 +3356,79 @@ focusmaster(const Arg *arg)
 
 	if (c)
 		focus(c);
+}
+
+void
+fibonacci(Monitor *m, int s) {
+	unsigned int i, n, nx, ny, nw, nh, bw;
+	Client *c;
+
+	for(n = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), n++); // Counts number of clients
+	if(n == 0) {
+		return;
+    } else if(n == 1) {
+        bw = 0;
+		c = nexttiled(m->clients);
+		resize(c, m->wx + m->gap->gappx, m->wy + m->gap->gappx, m->ww - (2 * bw) - 2 * m->gap->gappx, m->wh - 2 * bw - 2 * m->gap->gappx, bw, 0);
+		return;
+	} else
+        bw = borderpx;
+
+	nx = m->wx;
+	ny = m->wy;
+	nw = m->ww;
+	nh = m->wh - m->gap->gappx;
+	
+	for(i = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next)) {
+		if((i % 2 && nh / 2 > 2 * bw)
+		   || (!(i % 2) && nw / 2 > 2 * bw)) {
+			if(i < n - 1) {
+				if(i % 2)
+					nh /= 2;
+				else
+					nw /= 2;
+				if((i % 4) == 2 && !s)
+					nx += nw;
+				else if((i % 4) == 3 && !s)
+					ny += nh;
+			}
+			if((i % 4) == 0) {
+				if(s)
+					ny += nh;
+				else
+					ny -= nh;
+			}
+			else if((i % 4) == 1)
+				nx += nw;
+			else if((i % 4) == 2)
+				ny += nh;
+			else if((i % 4) == 3) {
+				if(s)
+					nx += nw;
+				else
+					nx -= nw;
+			}
+			if(i == 0)
+			{
+				if(n != 1)
+					nw = m->ww * m->mfact;
+				ny = m->wy;
+			}
+			else if(i == 1)
+				nw = m->ww - nw - m->gap->gappx;
+			i++;
+		}
+		resize(c, nx + m->gap->gappx, ny + m->gap->gappx, nw - (2 * bw) - m->gap->gappx, nh - 2 * bw - m->gap->gappx, bw, 0);
+
+	}
+}
+
+void
+dwindle(Monitor *m) {
+	fibonacci(m, 1);
+}
+
+void
+spiral(Monitor *m) {
+	fibonacci(m, 0);
 }

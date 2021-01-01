@@ -66,11 +66,13 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
+ 	{ "[\\]",     dwindle },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
+ 	{ "[@]",      spiral },
+	{ "[]=",      tile },
 };
 
 /* key definitions */
@@ -132,11 +134,13 @@ static Key keys[] = {
  	{ MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[6]} },
 	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[2]} },
  	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
  	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
+    { MODKEY,                       XK_y,      setlayout,      {.v = &layouts[5]} },
+	{ MODKEY|ShiftMask,             XK_y,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
     { MODKEY|ControlMask,           XK_space,  focusmaster,    {0} },
  	{ MODKEY|ControlMask,           XK_period, togglealwaysontop, {0} },
