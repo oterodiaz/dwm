@@ -16,7 +16,7 @@ static const int horizpadbar        = 2;        /* horizontal padding for status
 static const int vertpadbar         = 0;        /* vertical padding for statusbar */
 static const unsigned int baralpha = 0x66;      /*0xff is opaque*/
 static const unsigned int borderalpha = OPAQUE;
-static const char *fonts[]          = { "SFMono:size=11:style=Bold", "SFMono Nerd Font:size=14", "Apple Color Emoji:size=11" };
+static const char *fonts[]          = { "SFMono:size=11:style=Bold", "SFMono Nerd Font:size=13", "Apple Color Emoji:size=11" };
 static const char dmenufont[]       = "SFMono Nerd Font:size=11";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
