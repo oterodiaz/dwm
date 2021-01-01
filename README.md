@@ -33,6 +33,7 @@ You can find these and other patches and instructions on how to apply them on su
 + fsignal               - Script dwm actions through signals
 + launchfullscreen      - Custom patch I wrote that adds a rule to launch windows in fullscreen
 + focusmaster           - Quite useful, especially when using centeredmaster
++ fibonacci             - Like the tile layout, but better. I also made it work with fullgaps and smartborders
 
 # Dependencies
 You will need the following packages in order to build this fork:
