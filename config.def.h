@@ -176,17 +176,6 @@ static Key keys[] = {
 	{ ShiftMask,               0x1008ff11,      spawn,          SHCMD("amixer sset 'Master' 50% && kill -44 $(pidof dwmblocks)") },    /* Keycode for XF86AudioRaiseVolume */
     /* Mute volume */
 	{ 0,                       0x1008ff12,      spawn,          SHCMD("amixer sset 'Master' toggle && kill -44 $(pidof dwmblocks)") }, /* Keycode for XF86AudioMute */
-    /* Decrease brightness */
-	{ 0,                       0x1008ff03,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -r -10 && kill -45 $(pidof dwmblocks)") },        /* Keycode for XF86MonBrightnessDown */
-    /* Increase brightness */
-	{ 0,                       0x1008ff02,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -r 10 && kill -45 $(pidof dwmblocks)") },         /* Keycode for XF86MonBrightnessUp */
-    /* Set brightness to 0% */
-	{ ShiftMask,               0x1008ff03,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -s 0 && kill -45 $(pidof dwmblocks)") },          /* Keycode for XF86MonBrightnessDown */
-    /* Set brightness to 100% */
-	{ ShiftMask,               0x1008ff02,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -s 100 && kill -45 $(pidof dwmblocks)") },        /* Keycode for XF86MonBrightnessUp */
-    /* Set brightness to 50% */
-	{ MODKEY,                  0x1008ff02,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },         /* Keycode for XF86MonBrightnessUp */
-	{ MODKEY,                  0x1008ff03,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },         /* Keycode for XF86MonBrightnessDown */
 };
 
 /* button definitions */
