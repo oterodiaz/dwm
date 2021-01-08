@@ -166,16 +166,16 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_BackSpace, quit,        {0} },
 	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },  /* Restart dwm*/
-    /* Increase volume */
-	{ 0,                       0x1008ff13,      spawn,          SHCMD("amixer sset 'Master' 5%+ && kill -44 $(pidof dwmblocks)") },    /* Keycode for XF86AudioRaiseVolume */
-    /* Set volume to 100% */
-	{ ShiftMask,               0x1008ff13,      spawn,          SHCMD("amixer sset 'Master' 100% && kill -44 $(pidof dwmblocks)") },   /* Keycode for XF86AudioRaiseVolume */
-    /* Decrease volume */
-	{ 0,                       0x1008ff11,      spawn,          SHCMD("amixer sset 'Master' 5%- && kill -44 $(pidof dwmblocks)") },    /* Keycode for XF86AudioLowerVolume */
-    /* Set volume to 50% */
-	{ ShiftMask,               0x1008ff11,      spawn,          SHCMD("amixer sset 'Master' 50% && kill -44 $(pidof dwmblocks)") },    /* Keycode for XF86AudioRaiseVolume */
-    /* Mute volume */
-	{ 0,                       0x1008ff12,      spawn,          SHCMD("amixer sset 'Master' toggle && kill -44 $(pidof dwmblocks)") }, /* Keycode for XF86AudioMute */
+   
+	{ MODKEY,                       XK_F12,      spawn,          SHCMD("mixer vol +5 && pkill -75 dwmblocks") },    /* Increase volume */
+   
+	{ MODKEY|ShiftMask,             XK_F12,      spawn,          SHCMD("mixer vol 100 && pkill -75  dwmblocks") },  /* Set volume to 100% */
+   
+	{ MODKEY,                       XK_F11,      spawn,          SHCMD("mixer vol -5 && pkill -75 dwmblocks") },    /* Decrease volume */
+
+	{ MODKEY|ShiftMask,             XK_F11,      spawn,          SHCMD("mixer vol 50 && pkill -75 dwmblocks") },    /* Set volume to 50% */
+
+	{ MODKEY,                       XK_F10,      spawn,          SHCMD("mixer vol 0 && pkill -75 dwmblocks") },     /* Mute volume */
 };
 
 /* button definitions */
