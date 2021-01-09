@@ -168,11 +168,11 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_BackSpace, quit,        {0} },
 	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },  /* Restart dwm*/
-	{ MODKEY,                       XK_F12,      spawn,          SHCMD("mixer vol +5 && pkill -75 dwmblocks") },    /* Increase volume */
+	{ MODKEY,                       XK_F12,      spawn,          SHCMD("mixer vol +5 && pkill -75 dwmblocks") },    /* Increase volume by 5% */
+	{ MODKEY,                       XK_F11,      spawn,          SHCMD("mixer vol -5 && pkill -75 dwmblocks") },    /* Decrease volume by 5% */
 	{ MODKEY|ShiftMask,             XK_F12,      spawn,          SHCMD("mixer vol 100 && pkill -75  dwmblocks") },  /* Set volume to 100% */
-	{ MODKEY,                       XK_F11,      spawn,          SHCMD("mixer vol -5 && pkill -75 dwmblocks") },    /* Decrease volume */
 	{ MODKEY|ShiftMask,             XK_F11,      spawn,          SHCMD("mixer vol 50 && pkill -75 dwmblocks") },    /* Set volume to 50% */
-	{ MODKEY,                       XK_F10,      spawn,          SHCMD("mixer vol 0 && pkill -75 dwmblocks") },     /* Mute volume */
+	{ MODKEY,                       XK_F10,      spawn,          SHCMD("fish -c 'if test -f /tmp/muted; /home/diego/Scripts/mixer_mute -u; else; /home/diego/Scripts/mixer_mute; end'") },     /* Toggle mute */
 };
 
 /* button definitions */
