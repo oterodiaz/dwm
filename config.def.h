@@ -119,6 +119,8 @@ static Key keys[] = {
 	{ Mod1Mask|ShiftMask,           XK_s,      spawn,          SHCMD("/home/diego/Scripts/screenshot.fish --screen-file") },
 	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("slock -m \"Locked at $(date '+%a %d, %H:%M:%S')\"") },
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("arcologout") },
+	{ MODKEY,                       XK_p,      spawn,          SHCMD("/home/diego/Scripts/passmenu") },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("/home/diego/Scripts/passmenu --type") },
     { MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_b,      togglesystray,  {0} },
@@ -166,15 +168,10 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_BackSpace, quit,        {0} },
 	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },  /* Restart dwm*/
-   
 	{ MODKEY,                       XK_F12,      spawn,          SHCMD("mixer vol +5 && pkill -75 dwmblocks") },    /* Increase volume */
-   
 	{ MODKEY|ShiftMask,             XK_F12,      spawn,          SHCMD("mixer vol 100 && pkill -75  dwmblocks") },  /* Set volume to 100% */
-   
 	{ MODKEY,                       XK_F11,      spawn,          SHCMD("mixer vol -5 && pkill -75 dwmblocks") },    /* Decrease volume */
-
 	{ MODKEY|ShiftMask,             XK_F11,      spawn,          SHCMD("mixer vol 50 && pkill -75 dwmblocks") },    /* Set volume to 50% */
-
 	{ MODKEY,                       XK_F10,      spawn,          SHCMD("mixer vol 0 && pkill -75 dwmblocks") },     /* Mute volume */
 };
 
