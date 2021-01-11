@@ -113,14 +113,14 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,              XK_n,      spawn,          SHCMD("nitrogen") },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("pcmanfm") },
 	{ MODKEY,                       XK_t,      spawn,          SHCMD("telegram-desktop") },
-	{ MODKEY,                       XK_s,      spawn,          SHCMD("/home/diego/Scripts/screenshot.fish --area-clipboard") },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("/home/diego/Scripts/screenshot.fish --screen-clipboard") },
-	{ Mod1Mask,                     XK_s,      spawn,          SHCMD("/home/diego/Scripts/screenshot.fish --area-file") },
-	{ Mod1Mask|ShiftMask,           XK_s,      spawn,          SHCMD("/home/diego/Scripts/screenshot.fish --screen-file") },
+	{ MODKEY,                       XK_s,      spawn,          SHCMD("/home/diego/.scripts/screenshot_freebsd.fish --area-clipboard") },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("/home/diego/.scripts/screenshot_freebsd.fish --screen-clipboard") },
+	{ Mod1Mask,                     XK_s,      spawn,          SHCMD("/home/diego/.scripts/screenshot_freebsd.fish --area-file") },
+	{ Mod1Mask|ShiftMask,           XK_s,      spawn,          SHCMD("/home/diego/.scripts/screenshot_freebsd.fish --screen-file") },
 	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("slock -m \"Locked at $(date '+%a %d, %H:%M:%S')\"") },
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("arcologout") },
-	{ MODKEY,                       XK_p,      spawn,          SHCMD("/home/diego/Scripts/passmenu") },
-	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("/home/diego/Scripts/passmenu --type") },
+	{ MODKEY,                       XK_p,      spawn,          SHCMD("/home/diego/.scripts/passmenu") },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("/home/diego/.scripts/passmenu --type") },
     { MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_b,      togglesystray,  {0} },
@@ -172,7 +172,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F11,      spawn,          SHCMD("mixer vol -5 && kill -75 $(pidof dwmblocks)") },    /* Decrease volume by 5% */
 	{ MODKEY|ShiftMask,             XK_F12,      spawn,          SHCMD("mixer vol 100 && kill -75  $(pidof dwmblocks)") },  /* Set volume to 100% */
 	{ MODKEY|ShiftMask,             XK_F11,      spawn,          SHCMD("mixer vol 50 && kill -75 $(pidof dwmblocks)") },    /* Set volume to 50% */
-	{ MODKEY,                       XK_F10,      spawn,          SHCMD("fish -c 'if test -f /tmp/muted; /home/diego/Scripts/mixer_mute -u; else; /home/diego/Scripts/mixer_mute; end'") },     /* Toggle mute */
+	{ MODKEY,                       XK_F10,      spawn,          SHCMD("fish -c 'if test -f /tmp/muted; /home/diego/.scripts/mixer_mute -u; else; /home/diego/Scripts/mixer_mute; end'") },     /* Toggle mute */
 };
 
 /* button definitions */
