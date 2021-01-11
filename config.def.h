@@ -113,10 +113,10 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,              XK_n,      spawn,          SHCMD("nitrogen") },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("pcmanfm") },
 	{ MODKEY,                       XK_t,      spawn,          SHCMD("telegram-desktop") },
-	{ MODKEY,                       XK_s,      spawn,          SHCMD("/home/diego/Scripts/screenshot.fish --area-clipboard") },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("/home/diego/Scripts/screenshot.fish --screen-clipboard") },
-	{ Mod1Mask,                     XK_s,      spawn,          SHCMD("/home/diego/Scripts/screenshot.fish --area-file") },
-	{ Mod1Mask|ShiftMask,           XK_s,      spawn,          SHCMD("/home/diego/Scripts/screenshot.fish --screen-file") },
+	{ MODKEY,                       XK_s,      spawn,          SHCMD("/home/diego/.scripts/screenshot.fish --area-clipboard") },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("/home/diego/.scripts/screenshot.fish --screen-clipboard") },
+	{ Mod1Mask,                     XK_s,      spawn,          SHCMD("/home/diego/.scripts/screenshot.fish --area-file") },
+	{ Mod1Mask|ShiftMask,           XK_s,      spawn,          SHCMD("/home/diego/.scripts/screenshot.fish --screen-file") },
 	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("slock -m \"Locked at $(date '+%a %d, %H:%M:%S')\"") },
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("arcologout") },
     { MODKEY,                       XK_f,      togglefullscr,  {0} },
@@ -177,16 +177,16 @@ static Key keys[] = {
     /* Mute volume */
 	{ 0,                       0x1008ff12,      spawn,          SHCMD("amixer sset 'Master' toggle && kill -44 $(pidof dwmblocks)") }, /* Keycode for XF86AudioMute */
     /* Decrease brightness */
-	{ 0,                       0x1008ff03,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -r -10 && kill -45 $(pidof dwmblocks)") },        /* Keycode for XF86MonBrightnessDown */
+	{ 0,                       0x1008ff03,      spawn,          SHCMD("/home/diego/.scripts/brightness.py -r -10 && kill -45 $(pidof dwmblocks)") },        /* Keycode for XF86MonBrightnessDown */
     /* Increase brightness */
-	{ 0,                       0x1008ff02,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -r 10 && kill -45 $(pidof dwmblocks)") },         /* Keycode for XF86MonBrightnessUp */
+	{ 0,                       0x1008ff02,      spawn,          SHCMD("/home/diego/.scripts/brightness.py -r 10 && kill -45 $(pidof dwmblocks)") },         /* Keycode for XF86MonBrightnessUp */
     /* Set brightness to 0% */
-	{ ShiftMask,               0x1008ff03,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -s 0 && kill -45 $(pidof dwmblocks)") },          /* Keycode for XF86MonBrightnessDown */
+	{ ShiftMask,               0x1008ff03,      spawn,          SHCMD("/home/diego/.scripts/brightness.py -s 0 && kill -45 $(pidof dwmblocks)") },          /* Keycode for XF86MonBrightnessDown */
     /* Set brightness to 100% */
-	{ ShiftMask,               0x1008ff02,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -s 100 && kill -45 $(pidof dwmblocks)") },        /* Keycode for XF86MonBrightnessUp */
+	{ ShiftMask,               0x1008ff02,      spawn,          SHCMD("/home/diego/.scripts/brightness.py -s 100 && kill -45 $(pidof dwmblocks)") },        /* Keycode for XF86MonBrightnessUp */
     /* Set brightness to 50% */
-	{ MODKEY,                  0x1008ff02,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },         /* Keycode for XF86MonBrightnessUp */
-	{ MODKEY,                  0x1008ff03,      spawn,          SHCMD("/home/diego/Scripts/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },         /* Keycode for XF86MonBrightnessDown */
+	{ MODKEY,                  0x1008ff02,      spawn,          SHCMD("/home/diego/.scripts/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },         /* Keycode for XF86MonBrightnessUp */
+	{ MODKEY,                  0x1008ff03,      spawn,          SHCMD("/home/diego/.scripts/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },         /* Keycode for XF86MonBrightnessDown */
 };
 
 /* button definitions */
