@@ -172,7 +172,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F11,      spawn,          SHCMD("mixer vol -5 && kill -75 $(pidof dwmblocks)") },    /* Decrease volume by 5% */
 	{ MODKEY|ShiftMask,             XK_F12,      spawn,          SHCMD("mixer vol 100 && kill -75  $(pidof dwmblocks)") },  /* Set volume to 100% */
 	{ MODKEY|ShiftMask,             XK_F11,      spawn,          SHCMD("mixer vol 50 && kill -75 $(pidof dwmblocks)") },    /* Set volume to 50% */
-	{ MODKEY,                       XK_F10,      spawn,          SHCMD("fish -c 'if test -f /tmp/muted; /home/diego/.scripts/mixer_mute -u; else; /home/diego/Scripts/mixer_mute; end'") },     /* Toggle mute */
+	{ MODKEY,                       XK_F10,      spawn,          SHCMD("fish -c 'if test -f /tmp/muted; /home/diego/.scripts/mixer_mute -u; else; /home/diego/.scripts/mixer_mute; end'") },     /* Toggle mute */
 };
 
 /* button definitions */
