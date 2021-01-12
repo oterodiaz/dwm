@@ -51,7 +51,7 @@ I also use these fonts, which I'd rather not provide you with due to licensing (
 + SFMono
 + SFMono Nerd Font
 
-And a few utilities like `dwmblocks`, `redshift` or `amixer` and personal scripts that you can find on my [dotfiles repository](https://gitlab.com/Nero20/dotfiles-linux).
+And a few utilities like `dwmblocks`, `redshift` or `amixer` and personal scripts that you can find on my [scripts repository](https://gitlab.com/Nero20/scripts).
 
 # Installation
 ### Clone this repository
