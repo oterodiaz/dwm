@@ -51,7 +51,7 @@ I also use these fonts, which I'd rather not provide you with due to licensing (
 + SFMono
 + SFMono Nerd Font
 
-And a few utilities like `dwmblocks`, `redshift` or `amixer` and personal scripts that you can find on my [dotfiles repository](https://gitlab.com/Nero20/dotfiles-linux).
+And a few utilities like `dwmblocks`, `redshift` or `mixer` and personal scripts that you can find on my [scripts repository](https://gitlab.com/Nero20/scripts).
 
 # Installation
 ### Clone this repository
@@ -63,8 +63,11 @@ SSH:
 
 `git clone git@gitlab.com:Nero20/dwm.git`
 
-### Go into the folder
+### Go into the folder and switch to the FreeBSD branch
+
 `cd dwm`
+
+`git checkout FreeBSD`
 
 ### Build and install
 This requires root privileges and will install to `/usr/local/bin/dwm`
