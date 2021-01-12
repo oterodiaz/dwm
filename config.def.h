@@ -119,6 +119,8 @@ static Key keys[] = {
 	{ Mod1Mask|ShiftMask,           XK_s,      spawn,          SHCMD("/home/diego/.scripts/screenshot.fish --screen-file") },
 	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("slock -m \"Locked at $(date '+%a %d, %H:%M:%S')\"") },
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("arcologout") },
+    { MODKEY,                       XK_p,      spawn,          SHCMD("/home/diego/.scripts/passmenu") },
+    { MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("/home/diego/.scripts/passmenu --type") },
     { MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_b,      togglesystray,  {0} },
