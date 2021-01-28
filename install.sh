@@ -1,3 +1,3 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
-sudo make install && rm -f config.h && make clean
+make install && rm -f config.h && make clean
