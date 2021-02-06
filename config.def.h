@@ -35,8 +35,8 @@ static const unsigned int alphas[][3]      = {
 };
 
 static const char *const autostart[] = {
-    "dwmblocks", NULL,
 	"/home/diego/.config/dwm/autostart.sh", NULL,
+    "dwmblocks", NULL,
 	NULL /* terminate */
 };
 
