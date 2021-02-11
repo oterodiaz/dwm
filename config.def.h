@@ -120,6 +120,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("arcologout") },
     { MODKEY,                       XK_p,      spawn,          SHCMD("/home/diego/.scripts/passmenu") },
     { MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("/home/diego/.scripts/passmenu --type") },
+    { MODKEY|Mod1Mask,              XK_h,      spawn,          SHCMD("sxiv /home/diego/horario") },
     { MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_b,      togglesystray,  {0} },
