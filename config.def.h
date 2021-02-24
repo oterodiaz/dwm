@@ -14,7 +14,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 25;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const int horizpadbar        = 2;        /* horizontal padding for statusbar */
 static const int vertpadbar         = 0;        /* vertical padding for statusbar */
-static const unsigned int baralpha = 0x66;      /*0xff is opaque*/
+static const unsigned int baralpha = 0x33;      /*0xff is opaque*/
 static const unsigned int borderalpha = OPAQUE;
 static const char *fonts[]          = { "SFMono:size=11:style=Bold", "SFMono Nerd Font:size=13", "Apple Color Emoji:size=11" };
 static const char dmenufont[]       = "SFMono Nerd Font:size=11";
