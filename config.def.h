@@ -51,7 +51,8 @@ static const Rule rules[] = {
 	/* class          instance  title           tags mask  isfloating  isterminal  noswallow  monitor  fullscreen*/
 	{ "Telegram",     NULL,     NULL,           ~0,        1,          0,           0,        -1,           0 },
 	{ "firefox",      NULL,     NULL,           1 << 3,    0,          0,          -1,        -1,           0 },
-	{ "FreeTube",      NULL,     NULL,           1 << 3,    0,          0,          -1,        -1,           0 },
+	{ "Brave-browser",NULL,     NULL,           1 << 3,    0,          0,          -1,        -1,           0 },
+	{ "FreeTube",     NULL,     NULL,           1 << 3,    0,          0,          -1,        -1,           0 },
 	{ "Alacritty",    NULL,     NULL,           0,         0,          1,           0,        -1,           0 },
 	{ NULL,           NULL,     "Arcolinux Logout",    0,         0,          0,           1,        -1,           1 },
 	{ NULL,           NULL,     "Event Tester", 0,         0,          0,           1,        -1,           0 }, /* xev */
@@ -106,7 +107,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_slash,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
+	{ MODKEY,                       XK_w,      spawn,          SHCMD("brave") },
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("emacs") },
 	{ MODKEY,                       XK_F1,     spawn,          SHCMD("redshift -P -O 3500 && fish -c 'set -Ux REDSHIFT_ON true' && kill -45 $(pidof dwmblocks)") },
 	{ MODKEY,                       XK_F2,     spawn,          SHCMD("redshift -x && fish -c 'set -Ux REDSHIFT_ON false' && kill -45 $(pidof dwmblocks)") },
