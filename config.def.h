@@ -106,6 +106,7 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_slash,  spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_slash,  spawn,          SHCMD("/home/diego/.scripts/dmsearch.fish") },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("brave") },
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("emacs") },
@@ -218,4 +219,5 @@ static Button buttons[] = {
 static Signal signals[] = {
 	/* signum       function        argument  */
 	{ 1,            togglefullscr,    {0} },
+	{ 2,            view,           {.ui = 1 << 3} },
 };
