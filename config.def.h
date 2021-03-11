@@ -173,15 +173,15 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_BackSpace, quit,        {0} },
 	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },  /* Restart dwm*/
     /* Increase volume */
-	{ 0,                       0x1008ff13,      spawn,          SHCMD("amixer sset 'Master' 5%+ && kill -44 $(pidof dwmblocks)") },    /* Keycode for XF86AudioRaiseVolume */
+	{ 0,                       0x1008ff13,      spawn,          SHCMD("pamixer -i 5 && kill -44 $(pidof dwmblocks)") },    /* Keycode for XF86AudioRaiseVolume */
     /* Set volume to 100% */
-	{ ShiftMask,               0x1008ff13,      spawn,          SHCMD("amixer sset 'Master' 100% && kill -44 $(pidof dwmblocks)") },   /* Keycode for XF86AudioRaiseVolume */
+	{ ShiftMask,               0x1008ff13,      spawn,          SHCMD("pamixer --set-volume 100 && kill -44 $(pidof dwmblocks)") },   /* Keycode for XF86AudioRaiseVolume */
     /* Decrease volume */
-	{ 0,                       0x1008ff11,      spawn,          SHCMD("amixer sset 'Master' 5%- && kill -44 $(pidof dwmblocks)") },    /* Keycode for XF86AudioLowerVolume */
+	{ 0,                       0x1008ff11,      spawn,          SHCMD("pamixer -d 5 && kill -44 $(pidof dwmblocks)") },    /* Keycode for XF86AudioLowerVolume */
     /* Set volume to 50% */
-	{ ShiftMask,               0x1008ff11,      spawn,          SHCMD("amixer sset 'Master' 50% && kill -44 $(pidof dwmblocks)") },    /* Keycode for XF86AudioRaiseVolume */
+	{ ShiftMask,               0x1008ff11,      spawn,          SHCMD("pamixer --set-volume 50 && kill -44 $(pidof dwmblocks)") },    /* Keycode for XF86AudioRaiseVolume */
     /* Mute volume */
-	{ 0,                       0x1008ff12,      spawn,          SHCMD("amixer sset 'Master' toggle && kill -44 $(pidof dwmblocks)") }, /* Keycode for XF86AudioMute */
+	{ 0,                       0x1008ff12,      spawn,          SHCMD("pamixer -t && kill -44 $(pidof dwmblocks)") }, /* Keycode for XF86AudioMute */
     /* Decrease brightness */
 	{ 0,                       0x1008ff03,      spawn,          SHCMD("/home/diego/.scripts/brightness.py -r -10 && kill -45 $(pidof dwmblocks)") },        /* Keycode for XF86MonBrightnessDown */
     /* Increase brightness */
