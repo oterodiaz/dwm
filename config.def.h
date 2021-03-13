@@ -37,6 +37,7 @@ static const unsigned int alphas[][3]      = {
 static const char *const autostart[] = {
 	"/home/diego/.config/dwm/autostart.sh", NULL,
     "dwmblocks", NULL,
+	"emacs --daemon", NULL,
 	NULL /* terminate */
 };
 
@@ -107,9 +108,10 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_slash,  spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_slash,  spawn,          SHCMD("/home/diego/.scripts/dmsearch.fish") },
+	{ MODKEY,                       XK_space,  spawn,          SHCMD("/home/diego/.scripts/dmdotfiles.fish") },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("brave") },
-	{ MODKEY,                       XK_e,      spawn,          SHCMD("emacs") },
+	{ MODKEY,                       XK_e,      spawn,          SHCMD("emacsclient -c -a 'emacs'") },
 	{ MODKEY,                       XK_F1,     spawn,          SHCMD("redshift -P -O 3500 && fish -c 'set -Ux REDSHIFT_ON true' && kill -45 $(pidof dwmblocks)") },
 	{ MODKEY,                       XK_F2,     spawn,          SHCMD("redshift -x && fish -c 'set -Ux REDSHIFT_ON false' && kill -45 $(pidof dwmblocks)") },
 	{ MODKEY|Mod1Mask,              XK_n,      spawn,          SHCMD("nitrogen") },
@@ -148,7 +150,7 @@ static Key keys[] = {
  	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
     { MODKEY,                       XK_y,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY|ShiftMask,             XK_y,      setlayout,      {.v = &layouts[6]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
+	/* { MODKEY,                       XK_space,  setlayout,      {0} }, */
     { MODKEY|ControlMask,           XK_space,  focusmaster,    {0} },
  	{ MODKEY|ControlMask,           XK_period, togglealwaysontop, {0} },
 	{ MODKEY,                       XK_period, togglefloating, {0} },
