@@ -1,0 +1,53 @@
+diff -up ../original/config.def.h ./config.def.h
+--- ../original/config.def.h	2019-02-02 13:55:28.000000000 +0100
++++ ./config.def.h	2021-03-13 23:46:45.633220091 +0100
+@@ -26,9 +26,9 @@ static const Rule rules[] = {
+ 	 *	WM_CLASS(STRING) = instance, class
+ 	 *	WM_NAME(STRING) = title
+ 	 */
+-	/* class      instance    title       tags mask     isfloating   monitor */
+-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
++	/* class      instance    title       tags mask     isfloating   monitor    fullscreen */
++	{ "Gimp",     NULL,       NULL,       0,            1,           -1,         0 },
++	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1,         0 },
+ };
+ 
+ /* layout(s) */
+diff -up ../original/dwm.c ./dwm.c
+--- ../original/dwm.c	2019-02-02 13:55:28.000000000 +0100
++++ ./dwm.c	2021-03-13 23:49:48.806552084 +0100
+@@ -92,7 +92,7 @@ struct Client {
+ 	int basew, baseh, incw, inch, maxw, maxh, minw, minh;
+ 	int bw, oldbw;
+ 	unsigned int tags;
+-	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
++	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen, launchfullscreen;
+ 	Client *next;
+ 	Client *snext;
+ 	Monitor *mon;
+@@ -139,6 +139,7 @@ typedef struct {
+ 	unsigned int tags;
+ 	int isfloating;
+ 	int monitor;
++    int launchfullscreen;
+ } Rule;
+ 
+ /* function declarations */
+@@ -298,6 +299,7 @@ applyrules(Client *c)
+ 		&& (!r->instance || strstr(instance, r->instance)))
+ 		{
+ 			c->isfloating = r->isfloating;
++			c->launchfullscreen = r->launchfullscreen;
+ 			c->tags |= r->tags;
+ 			for (m = mons; m && m->num != r->monitor; m = m->next);
+ 			if (m)
+@@ -2011,6 +2013,8 @@ updatewindowtype(Client *c)
+ 		setfullscreen(c, 1);
+ 	if (wtype == netatom[NetWMWindowTypeDialog])
+ 		c->isfloating = 1;
++   	if (c->launchfullscreen)
++		setfullscreen(c, 1);
+ }
+ 
+ void
