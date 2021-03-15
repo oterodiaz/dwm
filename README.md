@@ -35,6 +35,7 @@ You can find these and other patches and instructions on how to apply them on su
 + focusmaster           - Quite useful, especially when using centeredmaster
 + fibonacci             - Like the tile layout, but better. I also made it work with fullgaps and smartborders
 + focusadjacenttag      - Pretty self explanatory
++ keychain              - Bind key chords emacs style
 
 # Dependencies
 You will need the following packages in order to build this fork:
