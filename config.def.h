@@ -80,19 +80,19 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
-#define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+#define TAGKEYS(CHAIN,KEY,TAG) \
+	{ MODKEY,                       CHAIN, KEY,      view,           {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask,           CHAIN, KEY,      toggleview,     {.ui = 1 << TAG} }, \
+	{ MODKEY|ShiftMask,             CHAIN, KEY,      tag,            {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask|ShiftMask, CHAIN, KEY,      toggletag,      {.ui = 1 << TAG} },
 #define STACKKEYS(MOD,ACTION) \
-	{ MOD, XK_j,     ACTION##stack, {.i = INC(+1) } }, \
-	{ MOD, XK_k,     ACTION##stack, {.i = INC(-1) } }, \
-	{ MOD, XK_grave, ACTION##stack, {.i = PREVSEL } }, \
-	{ MOD, XK_z,     ACTION##stack, {.i = 0 } }, \
-	{ MOD, XK_x,     ACTION##stack, {.i = -1 } },
-	/* { MOD, XK_z,     ACTION##stack, {.i = 1 } }, \ */
-	/* { MOD, XK_x,     ACTION##stack, {.i = 2 } }, \ */
+	{ MOD, -1, XK_j,     ACTION##stack, {.i = INC(+1) } }, \
+	{ MOD, -1, XK_k,     ACTION##stack, {.i = INC(-1) } }, \
+	{ MOD, -1, XK_grave, ACTION##stack, {.i = PREVSEL } }, \
+	{ MOD, -1, XK_z,     ACTION##stack, {.i = 0 } }, \
+	{ MOD, -1, XK_x,     ACTION##stack, {.i = -1 } },
+	/* { MOD, -1, XK_z,     ACTION##stack, {.i = 1 } }, \ */
+	/* { MOD, -1, XK_x,     ACTION##stack, {.i = 2 } }, \ */
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -106,84 +106,84 @@ static const char *dmenucmd[] = { "dmenu_run", "-s", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static Key keys[] = {
-	/* modifier                 key        function           argument */
-	{ MODKEY,                   XK_slash,  spawn,             {.v = dmenucmd } },
-	{ MODKEY,                   XK_Return, spawn,             {.v = termcmd } },
-	{ MODKEY|ShiftMask,         XK_slash,  spawn,             SHCMD("/home/diego/.scripts/dmsearch.fish") },
-	{ MODKEY,                   XK_space,  spawn,             SHCMD("/home/diego/.scripts/dmdotfiles.fish") },
-	{ MODKEY,                   XK_w,      spawn,             SHCMD("brave") },
-	{ MODKEY,                   XK_e,      spawn,             SHCMD("emacsclient -c -a 'emacs'") },
-	{ MODKEY,                   XK_F1,     spawn,             SHCMD("redshift -P -O 3500 && fish -c 'set -Ux REDSHIFT_ON true' && kill -45 $(pidof dwmblocks)") },
-	{ MODKEY,                   XK_F2,     spawn,             SHCMD("redshift -x && fish -c 'set -Ux REDSHIFT_ON false' && kill -45 $(pidof dwmblocks)") },
-	{ MODKEY|Mod1Mask,          XK_n,      spawn,             SHCMD("nitrogen") },
-	{ MODKEY|ShiftMask,         XK_Return, spawn,             SHCMD("pcmanfm") },
-	{ MODKEY,                   XK_t,      spawn,             SHCMD("telegram-desktop") },
-	{ MODKEY,                   XK_s,      spawn,             SHCMD("/home/diego/.scripts/screenshot.fish --area-clipboard") },
-	{ MODKEY|ShiftMask,         XK_s,      spawn,             SHCMD("/home/diego/.scripts/screenshot.fish --screen-clipboard") },
-	{ Mod1Mask,                 XK_s,      spawn,             SHCMD("/home/diego/.scripts/screenshot.fish --area-file") },
-	{ Mod1Mask|ShiftMask,       XK_s,      spawn,             SHCMD("/home/diego/.scripts/screenshot.fish --screen-file") },
-	{ MODKEY|ControlMask,       XK_q,      spawn,             SHCMD("slock -m \"Locked at $(date '+%a %d, %H:%M:%S')\"") },
-	{ MODKEY|ShiftMask,         XK_q,      spawn,             SHCMD("arcologout") },
-    { MODKEY,                   XK_p,      spawn,             SHCMD("/home/diego/.scripts/passmenu") },
-    { MODKEY|ShiftMask,         XK_p,      spawn,             SHCMD("/home/diego/.scripts/passmenu --type") },
-    { MODKEY|Mod1Mask,          XK_h,      spawn,             SHCMD("sxiv /home/diego/horario") },
-    { MODKEY,                   XK_m,      spawn,             SHCMD("mailspring") },
-    { MODKEY|Mod1Mask,          XK_y,      spawn,             SHCMD("pamixer -t; pamixer -t; freetube-bin") },
-    { MODKEY,                   XK_f,      togglefullscr,     {0} },
-	{ MODKEY,                   XK_b,      togglebar,         {0} },
-	{ MODKEY|ShiftMask,         XK_b,      togglesystray,     {0} },
-	{ MODKEY,                   XK_i,      incnmaster,        {.i = +1 } },
-	{ MODKEY,                   XK_d,      incnmaster,        {.i = -1 } },
-	{ MODKEY,                   XK_h,      setmfact,          {.f = -0.05} },
-	{ MODKEY,                   XK_l,      setmfact,          {.f = +0.05} },
- 	{ MODKEY|ShiftMask,         XK_h,      setcfact,          {.f = +0.25} },
- 	{ MODKEY|ShiftMask,         XK_l,      setcfact,          {.f = -0.25} },
- 	{ MODKEY|ShiftMask,         XK_o,      setcfact,          {.f =  0.00} },
-	{ MODKEY,                   XK_Tab,    view,              {0} },
-    { MODKEY,                   XK_Left,   viewtoleft,        {0} },
-    { MODKEY,                   XK_Right,  viewtoright,       {0} },
-    { MODKEY|ShiftMask,         XK_Left,   tagtoleft,         {0} },
-    { MODKEY|ShiftMask,         XK_Right,  tagtoright,        {0} },
-	{ MODKEY,                   XK_q,      killclient,        {0} },
-	{ MODKEY|ShiftMask,         XK_t,      setlayout,         {.v = &layouts[0]} },
-	{ MODKEY|ShiftMask,         XK_f,      setlayout,         {.v = &layouts[1]} },
-	{ MODKEY|ShiftMask,         XK_m,      setlayout,         {.v = &layouts[2]} },
- 	{ MODKEY,                   XK_u,      setlayout,         {.v = &layouts[3]} },
- 	{ MODKEY,                   XK_o,      setlayout,         {.v = &layouts[4]} },
-    { MODKEY,                   XK_y,      setlayout,         {.v = &layouts[5]} },
-	{ MODKEY|ShiftMask,         XK_y,      setlayout,         {.v = &layouts[6]} },
-    { MODKEY|ControlMask,       XK_space,  focusmaster,       {0} },
- 	{ MODKEY|ControlMask,       XK_period, togglealwaysontop, {0} },
-	{ MODKEY,                   XK_period, togglefloating, {0} },
-	{ MODKEY,                   XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,         XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                   XK_minus,  setgaps,        {.i = -5 } },
-	{ MODKEY,                   XK_equal,  setgaps,        {.i = +5 } },
-	{ MODKEY|ShiftMask,         XK_minus,  setgaps,        {.i = GAP_RESET } },
-	{ MODKEY|ShiftMask,         XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
-	{ MODKEY|ShiftMask,         XK_BackSpace, quit,        {0} },
-	{ MODKEY|ShiftMask,         XK_r,      quit,           {1} },  /* Restart dwm*/
-	TAGKEYS(                    XK_1,                      0)
-	TAGKEYS(                    XK_2,                      1)
-	TAGKEYS(                    XK_3,                      2)
-	TAGKEYS(                    XK_4,                      3)
-	STACKKEYS(MODKEY,                      focus)
-	STACKKEYS(MODKEY|ShiftMask,            push)
+	/* modifier                 chain key    key        function           argument */
+	{ MODKEY,                   -1,          XK_slash,  spawn,             {.v = dmenucmd } },
+	{ MODKEY,                   -1,          XK_Return, spawn,             {.v = termcmd } },
+	{ MODKEY|ShiftMask,         -1,          XK_slash,  spawn,             SHCMD("/home/diego/.scripts/dmsearch.fish") },
+	{ MODKEY,                   -1,          XK_space,  spawn,             SHCMD("/home/diego/.scripts/dmdotfiles.fish") },
+	{ MODKEY,                   -1,          XK_w,      spawn,             SHCMD("brave") },
+	{ MODKEY,                   -1,          XK_e,      spawn,             SHCMD("emacsclient -c -a 'emacs'") },
+	{ MODKEY,                   -1,          XK_F1,     spawn,             SHCMD("redshift -P -O 3500 && fish -c 'set -Ux REDSHIFT_ON true' && kill -45 $(pidof dwmblocks)") },
+	{ MODKEY,                   -1,          XK_F2,     spawn,             SHCMD("redshift -x && fish -c 'set -Ux REDSHIFT_ON false' && kill -45 $(pidof dwmblocks)") },
+	{ MODKEY|Mod1Mask,          -1,          XK_n,      spawn,             SHCMD("nitrogen") },
+	{ MODKEY|ShiftMask,         -1,          XK_Return, spawn,             SHCMD("pcmanfm") },
+	{ MODKEY,                   -1,          XK_t,      spawn,             SHCMD("telegram-desktop") },
+	{ MODKEY,                   -1,          XK_s,      spawn,             SHCMD("/home/diego/.scripts/screenshot.fish --area-clipboard") },
+	{ MODKEY|ShiftMask,         -1,          XK_s,      spawn,             SHCMD("/home/diego/.scripts/screenshot.fish --screen-clipboard") },
+	{ Mod1Mask,                 -1,          XK_s,      spawn,             SHCMD("/home/diego/.scripts/screenshot.fish --area-file") },
+	{ Mod1Mask|ShiftMask,       -1,          XK_s,      spawn,             SHCMD("/home/diego/.scripts/screenshot.fish --screen-file") },
+	{ MODKEY|ControlMask,       -1,          XK_q,      spawn,             SHCMD("slock -m \"Locked at $(date '+%a %d, %H:%M:%S')\"") },
+	{ MODKEY|ShiftMask,         -1,          XK_q,      spawn,             SHCMD("arcologout") },
+    { MODKEY,                   -1,          XK_p,      spawn,             SHCMD("/home/diego/.scripts/passmenu") },
+    { MODKEY|ShiftMask,         -1,          XK_p,      spawn,             SHCMD("/home/diego/.scripts/passmenu --type") },
+    { MODKEY|Mod1Mask,          -1,          XK_h,      spawn,             SHCMD("sxiv /home/diego/horario") },
+    { MODKEY,                   -1,          XK_m,      spawn,             SHCMD("mailspring") },
+    { MODKEY|Mod1Mask,          -1,          XK_y,      spawn,             SHCMD("pamixer -t; pamixer -t; freetube-bin") },
+    { MODKEY,                   -1,          XK_f,      togglefullscr,     {0} },
+	{ MODKEY,                   -1,          XK_b,      togglebar,         {0} },
+	{ MODKEY|ShiftMask,         -1,          XK_b,      togglesystray,     {0} },
+	{ MODKEY,                   -1,          XK_i,      incnmaster,        {.i = +1 } },
+	{ MODKEY,                   -1,          XK_d,      incnmaster,        {.i = -1 } },
+	{ MODKEY,                   -1,          XK_h,      setmfact,          {.f = -0.05} },
+	{ MODKEY,                   -1,          XK_l,      setmfact,          {.f = +0.05} },
+ 	{ MODKEY|ShiftMask,         -1,          XK_h,      setcfact,          {.f = +0.25} },
+ 	{ MODKEY|ShiftMask,         -1,          XK_l,      setcfact,          {.f = -0.25} },
+ 	{ MODKEY|ShiftMask,         -1,          XK_o,      setcfact,          {.f =  0.00} },
+	{ MODKEY,                   -1,          XK_Tab,    view,              {0} },
+    { MODKEY,                   -1,          XK_Left,   viewtoleft,        {0} },
+    { MODKEY,                   -1,          XK_Right,  viewtoright,       {0} },
+    { MODKEY|ShiftMask,         -1,          XK_Left,   tagtoleft,         {0} },
+    { MODKEY|ShiftMask,         -1,          XK_Right,  tagtoright,        {0} },
+	{ MODKEY,                   -1,          XK_q,      killclient,        {0} },
+	{ MODKEY|ShiftMask,         -1,          XK_t,      setlayout,         {.v = &layouts[0]} },
+	{ MODKEY|ShiftMask,         -1,          XK_f,      setlayout,         {.v = &layouts[1]} },
+	{ MODKEY|ShiftMask,         -1,          XK_m,      setlayout,         {.v = &layouts[2]} },
+ 	{ MODKEY,                   -1,          XK_u,      setlayout,         {.v = &layouts[3]} },
+ 	{ MODKEY,                   -1,          XK_o,      setlayout,         {.v = &layouts[4]} },
+    { MODKEY,                   -1,          XK_y,      setlayout,         {.v = &layouts[5]} },
+	{ MODKEY|ShiftMask,         -1,          XK_y,      setlayout,         {.v = &layouts[6]} },
+    { MODKEY|ControlMask,       -1,          XK_space,  focusmaster,       {0} },
+ 	{ MODKEY|ControlMask,       -1,          XK_period, togglealwaysontop, {0} },
+	{ MODKEY,                   -1,          XK_period, togglefloating, {0} },
+	{ MODKEY,                   -1,          XK_0,      view,           {.ui = ~0 } },
+	{ MODKEY|ShiftMask,         -1,          XK_0,      tag,            {.ui = ~0 } },
+	{ MODKEY,                   -1,          XK_minus,  setgaps,        {.i = -5 } },
+	{ MODKEY,                   -1,          XK_equal,  setgaps,        {.i = +5 } },
+	{ MODKEY|ShiftMask,         -1,          XK_minus,  setgaps,        {.i = GAP_RESET } },
+	{ MODKEY|ShiftMask,         -1,          XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
+	{ MODKEY|ShiftMask,         -1,          XK_BackSpace, quit,        {0} },
+	{ MODKEY|ShiftMask,         -1,          XK_r,      quit,           {1} },  /* Restart dwm*/
+	TAGKEYS(                    -1, XK_1,                      0)
+	TAGKEYS(                    -1, XK_2,                      1)
+	TAGKEYS(                    -1, XK_3,                      2)
+	TAGKEYS(                    -1, XK_4,                      3)
+	STACKKEYS(MODKEY,                     focus)
+	STACKKEYS(MODKEY|ShiftMask,           push)
 
     /* Volume */
-	{ 0,         0x1008ff13, spawn, SHCMD("pamixer -i 5 && kill -44 $(pidof dwmblocks)") },             // +5%
-	{ 0,         0x1008ff11, spawn, SHCMD("pamixer -d 5 && kill -44 $(pidof dwmblocks)") },             // -5%
-	{ ShiftMask, 0x1008ff13, spawn, SHCMD("pamixer --set-volume 100 && kill -44 $(pidof dwmblocks)") }, // 100%
-	{ ShiftMask, 0x1008ff11, spawn, SHCMD("pamixer --set-volume 50 && kill -44 $(pidof dwmblocks)") },  // 50%
-	{ 0,         0x1008ff12, spawn, SHCMD("pamixer -t && kill -44 $(pidof dwmblocks)") },               // Mute
+	{ 0,         -1, 0x1008ff13, spawn, SHCMD("pamixer -i 5 && kill -44 $(pidof dwmblocks)") },             // +5%
+	{ 0,         -1, 0x1008ff11, spawn, SHCMD("pamixer -d 5 && kill -44 $(pidof dwmblocks)") },             // -5%
+	{ ShiftMask, -1, 0x1008ff13, spawn, SHCMD("pamixer --set-volume 100 && kill -44 $(pidof dwmblocks)") }, // 100%
+	{ ShiftMask, -1, 0x1008ff11, spawn, SHCMD("pamixer --set-volume 50 && kill -44 $(pidof dwmblocks)") },  // 50%
+	{ 0,         -1, 0x1008ff12, spawn, SHCMD("pamixer -t && kill -44 $(pidof dwmblocks)") },               // Mute
 
     /* Brightness */
-	{ 0,         0x1008ff03, spawn, SHCMD("/home/diego/.scripts/brightness.py -r -10 && kill -45 $(pidof dwmblocks)") }, // -10%
-	{ 0,         0x1008ff02, spawn, SHCMD("/home/diego/.scripts/brightness.py -r 10 && kill -45 $(pidof dwmblocks)") },  // +10%
-	{ ShiftMask, 0x1008ff03, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 0 && kill -45 $(pidof dwmblocks)") },   // 0%
-	{ ShiftMask, 0x1008ff02, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 100 && kill -45 $(pidof dwmblocks)") }, // 100%
-	{ MODKEY,    0x1008ff02, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },  // 50%
-	{ MODKEY,    0x1008ff03, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },  // 50%
+	{ 0,         -1, 0x1008ff03, spawn, SHCMD("/home/diego/.scripts/brightness.py -r -10 && kill -45 $(pidof dwmblocks)") }, // -10%
+	{ 0,         -1, 0x1008ff02, spawn, SHCMD("/home/diego/.scripts/brightness.py -r 10 && kill -45 $(pidof dwmblocks)") },  // +10%
+	{ ShiftMask, -1, 0x1008ff03, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 0 && kill -45 $(pidof dwmblocks)") },   // 0%
+	{ ShiftMask, -1, 0x1008ff02, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 100 && kill -45 $(pidof dwmblocks)") }, // 100%
+	{ MODKEY,    -1, 0x1008ff02, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },  // 50%
+	{ MODKEY,    -1, 0x1008ff03, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },  // 50%
 
     /* Unused keybindings */
 	/* { MODKEY,                       XK_z, zoom,           {0} }, */
