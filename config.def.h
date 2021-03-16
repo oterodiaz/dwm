@@ -233,25 +233,25 @@ static Key keys[] = {
 /* Button definitions */
 /* Click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
-	/* Click         Event mask  Button   Function        Argument */
-	{ ClkLtSymbol,   0,          Button1, setlayout,      {0} },
-	{ ClkLtSymbol,   0,          Button3, setlayout,      {.v = &layouts[2]} },
-	{ ClkWinTitle,   0,          Button2, zoom,           {0} },
-	{ ClkStatusText, 0,          Button2, spawn,          {.v = termcmd } },
-	{ ClkClientWin,  MODKEY,     Button1, movemouse,      {0} },
-	{ ClkClientWin,  MODKEY,     Button2, togglefloating, {0} },
-	{ ClkClientWin,  MODKEY,     Button3, resizemouse,    {0} },
-	{ ClkTagBar,     0,          Button1, view,           {0} },
-	{ ClkTagBar,     0,          Button3, toggleview,     {0} },
-	{ ClkTagBar,     MODKEY,     Button1, tag,            {0} },
-	{ ClkTagBar,     MODKEY,     Button3, toggletag,      {0} },
+    /* Click         Event mask  Button   Function        Argument */
+    { ClkLtSymbol,   0,          Button1, setlayout,      {0} },
+    { ClkLtSymbol,   0,          Button3, setlayout,      {.v = &layouts[2]} },
+    { ClkWinTitle,   0,          Button2, zoom,           {0} },
+    { ClkStatusText, 0,          Button2, spawn,          {.v = termcmd } },
+    { ClkClientWin,  MODKEY,     Button1, movemouse,      {0} },
+    { ClkClientWin,  MODKEY,     Button2, togglefloating, {0} },
+    { ClkClientWin,  MODKEY,     Button3, resizemouse,    {0} },
+    { ClkTagBar,     0,          Button1, view,           {0} },
+    { ClkTagBar,     0,          Button3, toggleview,     {0} },
+    { ClkTagBar,     MODKEY,     Button1, tag,            {0} },
+    { ClkTagBar,     MODKEY,     Button3, toggletag,      {0} },
 };
 
 /* Signals */
 /* signum must be greater than 0 */
 /* trigger signals using 'xsetroot -name "fsignal:<signum>"' */
 static Signal signals[] = {
-	/* Signum  Function       Argument  */
-	{ 1,       togglefullscr, {0} },
-	{ 2,       view,          {.ui = 1 << 3} },
+    /* Signum  Function       Argument  */
+    { 1,       togglefullscr, {0} },
+    { 2,       view,          {.ui = 1 << 3} },
 };
