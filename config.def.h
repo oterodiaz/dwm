@@ -106,69 +106,80 @@ static const char *dmenucmd[] = { "dmenu_run", "-s", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static Key keys[] = {
-	/* modifier                 chain key    key        function           argument */
-	{ MODKEY,                   -1,          XK_slash,  spawn,             {.v = dmenucmd } },
-	{ MODKEY,                   -1,          XK_Return, spawn,             {.v = termcmd } },
-	{ MODKEY|ShiftMask,         -1,          XK_slash,  spawn,             SHCMD("/home/diego/.scripts/dmsearch.fish") },
-	{ MODKEY,                   -1,          XK_space,  spawn,             SHCMD("/home/diego/.scripts/dmdotfiles.fish") },
-	{ MODKEY,                   -1,          XK_w,      spawn,             SHCMD("brave") },
-	{ MODKEY,                   -1,          XK_e,      spawn,             SHCMD("emacsclient -c -a 'emacs'") },
-	{ MODKEY,                   -1,          XK_F1,     spawn,             SHCMD("redshift -P -O 3500 && fish -c 'set -Ux REDSHIFT_ON true' && kill -45 $(pidof dwmblocks)") },
-	{ MODKEY,                   -1,          XK_F2,     spawn,             SHCMD("redshift -x && fish -c 'set -Ux REDSHIFT_ON false' && kill -45 $(pidof dwmblocks)") },
-	{ MODKEY|Mod1Mask,          -1,          XK_n,      spawn,             SHCMD("nitrogen") },
-	{ MODKEY|ShiftMask,         -1,          XK_Return, spawn,             SHCMD("pcmanfm") },
-	{ MODKEY,                   -1,          XK_t,      spawn,             SHCMD("telegram-desktop") },
-	{ MODKEY,                   -1,          XK_s,      spawn,             SHCMD("/home/diego/.scripts/screenshot.fish --area-clipboard") },
-	{ MODKEY|ShiftMask,         -1,          XK_s,      spawn,             SHCMD("/home/diego/.scripts/screenshot.fish --screen-clipboard") },
-	{ Mod1Mask,                 -1,          XK_s,      spawn,             SHCMD("/home/diego/.scripts/screenshot.fish --area-file") },
-	{ Mod1Mask|ShiftMask,       -1,          XK_s,      spawn,             SHCMD("/home/diego/.scripts/screenshot.fish --screen-file") },
-	{ MODKEY|ControlMask,       -1,          XK_q,      spawn,             SHCMD("slock -m \"Locked at $(date '+%a %d, %H:%M:%S')\"") },
-	{ MODKEY|ShiftMask,         -1,          XK_q,      spawn,             SHCMD("arcologout") },
-    { MODKEY,                   -1,          XK_p,      spawn,             SHCMD("/home/diego/.scripts/passmenu") },
-    { MODKEY|ShiftMask,         -1,          XK_p,      spawn,             SHCMD("/home/diego/.scripts/passmenu --type") },
-    { MODKEY|Mod1Mask,          -1,          XK_h,      spawn,             SHCMD("sxiv /home/diego/horario") },
-    { MODKEY,                   -1,          XK_m,      spawn,             SHCMD("mailspring") },
-    { MODKEY|Mod1Mask,          -1,          XK_y,      spawn,             SHCMD("pamixer -t; pamixer -t; freetube-bin") },
-    { MODKEY,                   -1,          XK_f,      togglefullscr,     {0} },
-	{ MODKEY,                   -1,          XK_b,      togglebar,         {0} },
-	{ MODKEY|ShiftMask,         -1,          XK_b,      togglesystray,     {0} },
-	{ MODKEY,                   -1,          XK_i,      incnmaster,        {.i = +1 } },
-	{ MODKEY,                   -1,          XK_d,      incnmaster,        {.i = -1 } },
-	{ MODKEY,                   -1,          XK_h,      setmfact,          {.f = -0.05} },
-	{ MODKEY,                   -1,          XK_l,      setmfact,          {.f = +0.05} },
- 	{ MODKEY|ShiftMask,         -1,          XK_h,      setcfact,          {.f = +0.25} },
- 	{ MODKEY|ShiftMask,         -1,          XK_l,      setcfact,          {.f = -0.25} },
- 	{ MODKEY|ShiftMask,         -1,          XK_o,      setcfact,          {.f =  0.00} },
-	{ MODKEY,                   -1,          XK_Tab,    view,              {0} },
-    { MODKEY,                   -1,          XK_Left,   viewtoleft,        {0} },
-    { MODKEY,                   -1,          XK_Right,  viewtoright,       {0} },
-    { MODKEY|ShiftMask,         -1,          XK_Left,   tagtoleft,         {0} },
-    { MODKEY|ShiftMask,         -1,          XK_Right,  tagtoright,        {0} },
-	{ MODKEY,                   -1,          XK_q,      killclient,        {0} },
-	{ MODKEY|ShiftMask,         -1,          XK_t,      setlayout,         {.v = &layouts[0]} },
-	{ MODKEY|ShiftMask,         -1,          XK_f,      setlayout,         {.v = &layouts[1]} },
-	{ MODKEY|ShiftMask,         -1,          XK_m,      setlayout,         {.v = &layouts[2]} },
- 	{ MODKEY,                   -1,          XK_u,      setlayout,         {.v = &layouts[3]} },
- 	{ MODKEY,                   -1,          XK_o,      setlayout,         {.v = &layouts[4]} },
-    { MODKEY,                   -1,          XK_y,      setlayout,         {.v = &layouts[5]} },
-	{ MODKEY|ShiftMask,         -1,          XK_y,      setlayout,         {.v = &layouts[6]} },
-    { MODKEY|ControlMask,       -1,          XK_space,  focusmaster,       {0} },
- 	{ MODKEY|ControlMask,       -1,          XK_period, togglealwaysontop, {0} },
-	{ MODKEY,                   -1,          XK_period, togglefloating, {0} },
-	{ MODKEY,                   -1,          XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,         -1,          XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                   -1,          XK_minus,  setgaps,        {.i = -5 } },
-	{ MODKEY,                   -1,          XK_equal,  setgaps,        {.i = +5 } },
-	{ MODKEY|ShiftMask,         -1,          XK_minus,  setgaps,        {.i = GAP_RESET } },
-	{ MODKEY|ShiftMask,         -1,          XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
-	{ MODKEY|ShiftMask,         -1,          XK_BackSpace, quit,        {0} },
-	{ MODKEY|ShiftMask,         -1,          XK_r,      quit,           {1} },  /* Restart dwm*/
-	TAGKEYS(                    -1, XK_1,                      0)
-	TAGKEYS(                    -1, XK_2,                      1)
-	TAGKEYS(                    -1, XK_3,                      2)
-	TAGKEYS(                    -1, XK_4,                      3)
-	STACKKEYS(MODKEY,                     focus)
-	STACKKEYS(MODKEY|ShiftMask,           push)
+	/*  Format: Modifier, Key chain, Key, Function, Argument */
+
+    /* Misc. */
+	{ MODKEY,            -1, XK_Return, spawn, {.v = termcmd } },                           // Terminal
+	{ MODKEY|ShiftMask,  -1, XK_Return, spawn, SHCMD("pcmanfm") },                          // File manager
+	{ MODKEY,            -1, XK_w,      spawn, SHCMD("brave") },                            // Web browser
+	{ MODKEY,            -1, XK_e,      spawn, SHCMD("emacsclient -c -a 'emacs'") },        // Emacs
+	{ MODKEY,            -1, XK_t,      spawn, SHCMD("telegram-desktop") },                 // Telegram
+    { MODKEY,            -1, XK_y,      spawn, SHCMD("pamixer -t; pamixer -t; freetube") }, // FreeTube
+	{ MODKEY,            -1, XK_o,      spawn, SHCMD("notion-app") },                       // Nitrogen
+    { MODKEY|Mod1Mask,   -1, XK_h,      spawn, SHCMD("sxiv /home/diego/horario") },         // Timetable
+	{ MODKEY,            -1, XK_n,      spawn, SHCMD("nitrogen") },                         // Nitrogen
+    { MODKEY,            -1, XK_m,      spawn, SHCMD("mailspring") },                       // Mailspring
+
+	/* dmenu */
+	{ MODKEY,            -1, XK_slash, spawn, {.v = dmenucmd } },                              // dmenu
+	{ MODKEY|ShiftMask,  -1, XK_slash, spawn, SHCMD("/home/diego/.scripts/dmsearch.fish") },   // dmsearch.fish
+	{ MODKEY,            -1, XK_space, spawn, SHCMD("/home/diego/.scripts/dmdotfiles.fish") }, // dmdotfiles.fish
+    { MODKEY,            -1, XK_p,     spawn, SHCMD("/home/diego/.scripts/passmenu") },        // passmenu (clipboard)
+    { MODKEY|ShiftMask,  -1, XK_p,     spawn, SHCMD("/home/diego/.scripts/passmenu --type") }, // passmenu (xdotool)
+
+	/* Screenshots */
+	{ MODKEY,             -1, XK_s, spawn, SHCMD("/home/diego/.scripts/screenshot.fish --area-clipboard") },   // Screenshot copy area
+	{ MODKEY|ShiftMask,   -1, XK_s, spawn, SHCMD("/home/diego/.scripts/screenshot.fish --screen-clipboard") }, // Screenshot copy screen
+	{ Mod1Mask,           -1, XK_s, spawn, SHCMD("/home/diego/.scripts/screenshot.fish --area-file") },        // Screenshot save area
+	{ Mod1Mask|ShiftMask, -1, XK_s, spawn, SHCMD("/home/diego/.scripts/screenshot.fish --screen-file") },      // Screenshot save screen
+
+	/* dwm */
+    { MODKEY,            -1, XK_f,         togglefullscr,     {0} },               // Toggle fullscreen on the focused window
+	{ MODKEY,            -1, XK_b,         togglebar,         {0} },               // Toggle the bar
+	{ MODKEY|ShiftMask,  -1, XK_b,         togglesystray,     {0} },               // Toggle the systray
+	{ MODKEY,            -1, XK_i,         incnmaster,        {.i = +1 } },        // Increase number of master windows
+	{ MODKEY,            -1, XK_d,         incnmaster,        {.i = -1 } },        // Decrease number of master windows
+	{ MODKEY,            -1, XK_h,         setmfact,          {.f = -0.05} },      // Move vertical split to the left
+	{ MODKEY,            -1, XK_l,         setmfact,          {.f = +0.05} },      // Move vertical split to the right
+ 	{ MODKEY|ShiftMask,  -1, XK_h,         setcfact,          {.f = +0.25} },      // Decrease window weight
+ 	{ MODKEY|ShiftMask,  -1, XK_l,         setcfact,          {.f = -0.25} },      // Increase window weight
+ 	{ MODKEY|ShiftMask,  -1, XK_o,         setcfact,          {.f =  0.00} },      // Reset window weight
+	{ MODKEY,            -1, XK_Tab,       view,              {0} },               // View recent tag
+    { MODKEY,            -1, XK_Left,      viewtoleft,        {0} },               // View left tag
+    { MODKEY,            -1, XK_Right,     viewtoright,       {0} },               // View right tag
+    { MODKEY|ShiftMask,  -1, XK_Left,      tagtoleft,         {0} },               // Move window to left tag
+    { MODKEY|ShiftMask,  -1, XK_Right,     tagtoright,        {0} },               // Move window to right tag
+	{ MODKEY,            -1, XK_q,         killclient,        {0} },               // Close focused window
+    { MODKEY|ControlMask,-1, XK_space,     focusmaster,       {0} },               // Focus master
+	{ MODKEY,            -1, XK_period,    togglefloating,    {0} },               // Toggle float
+ 	{ MODKEY|ControlMask,-1, XK_period,    togglealwaysontop, {0} },               // Toggle always on top
+	{ MODKEY,            -1, XK_0,         view,              {.ui = ~0 } },       // View all tags
+	{ MODKEY|ShiftMask,  -1, XK_0,         tag,               {.ui = ~0 } },       // Move to all tags
+	{ MODKEY,            -1, XK_minus,     setgaps,           {.i = -5 } },        // Decrease gaps
+	{ MODKEY,            -1, XK_equal,     setgaps,           {.i = +5 } },        // Increase gaps
+	{ MODKEY|ShiftMask,  -1, XK_minus,     setgaps,           {.i = GAP_RESET } }, // Reset gaps
+	{ MODKEY|ShiftMask,  -1, XK_equal,     setgaps,           {.i = GAP_TOGGLE} }, // Toggle gaps
+	{ MODKEY|ShiftMask,  -1, XK_BackSpace, quit,              {0} },               // Quit dwm
+	{ MODKEY|ShiftMask,  -1, XK_r,         quit,              {1} },               // Restart dwm
+
+    /* Tags */
+	TAGKEYS( -1, XK_1, 0) // First tag
+	TAGKEYS( -1, XK_2, 1) // Second tag
+	TAGKEYS( -1, XK_3, 2) // Third tag
+	TAGKEYS( -1, XK_4, 3) // Fourth tag
+
+	/* Lock/Log Out */
+	{ MODKEY|ShiftMask,   -1, XK_q, spawn, SHCMD("arcologout") }, // Arcologout
+	{ MODKEY|ControlMask, -1, XK_q, spawn, SHCMD("slock -m \"Locked at $(date '+%a %d, %H:%M:%S')\"") }, // Lock screen
+
+    /* Layouts */
+	{ MODKEY|ControlMask, XK_l, XK_t, setlayout, {.v = &layouts[0]} }, // Tile
+	{ MODKEY|ControlMask, XK_l, XK_f, setlayout, {.v = &layouts[1]} }, // Floating
+	{ MODKEY|ControlMask, XK_l, XK_m, setlayout, {.v = &layouts[2]} }, // Monocle
+ 	{ MODKEY|ControlMask, XK_l, XK_c, setlayout, {.v = &layouts[3]} }, // CenteredMaster
+ 	{ MODKEY|ControlMask, XK_l, XK_v, setlayout, {.v = &layouts[4]} }, // CenteredFloatingMaster
+    { MODKEY|ControlMask, XK_l, XK_s, setlayout, {.v = &layouts[5]} }, // Spiral
+    { MODKEY|ControlMask, XK_l, XK_d, setlayout, {.v = &layouts[6]} }, // Dwindle
 
     /* Volume */
 	{ 0,         -1, 0x1008ff13, spawn, SHCMD("pamixer -i 5 && kill -44 $(pidof dwmblocks)") },             // +5%
@@ -185,42 +196,50 @@ static Key keys[] = {
 	{ MODKEY,    -1, 0x1008ff02, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },  // 50%
 	{ MODKEY,    -1, 0x1008ff03, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },  // 50%
 
+	/* Blue Light Filter */
+	{ MODKEY, -1, XK_F2, spawn, SHCMD("redshift -x && fish -c 'set -Ux REDSHIFT_ON false' && kill -45 $(pidof dwmblocks)") },        // Disable redshift
+	{ MODKEY, -1, XK_F1, spawn, SHCMD("redshift -P -O 3500 && fish -c 'set -Ux REDSHIFT_ON true' && kill -45 $(pidof dwmblocks)") }, // Enable redshift
+
+    /* Stacker */
+	STACKKEYS(MODKEY, focus)
+	STACKKEYS(MODKEY|ShiftMask, push)
+
     /* Unused keybindings */
-	/* { MODKEY,                       XK_z, zoom,           {0} }, */
-	/* { MODKEY,                       XK_space,  setlayout,      {0} }, */
-	/* { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } }, */
-	/* { MODKEY,                       XK_period, focusmon,       {.i = +1 } }, */
-	/* { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } }, */
-	/* { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } }, */
-	/* TAGKEYS(                        XK_5,                      4) */
-	/* TAGKEYS(                        XK_6,                      5) */
-	/* TAGKEYS(                        XK_7,                      6) */
-	/* TAGKEYS(                        XK_8,                      7) */
-	/* TAGKEYS(                        XK_9,                      8) */
+	/* { MODKEY,           XK_z,      zoom,      {0} }, */
+	/* { MODKEY,           XK_space,  setlayout, {0} }, */
+	/* { MODKEY,           XK_comma,  focusmon,  {.i = -1 } }, */
+	/* { MODKEY,           XK_period, focusmon,  {.i = +1 } }, */
+	/* { MODKEY|ShiftMask, XK_comma,  tagmon,    {.i = -1 } }, */
+	/* { MODKEY|ShiftMask, XK_period, tagmon,    {.i = +1 } }, */
+	/* TAGKEYS(            XK_5,                 4) */
+	/* TAGKEYS(            XK_6,                 5) */
+	/* TAGKEYS(            XK_7,                 6) */
+	/* TAGKEYS(            XK_8,                 7) */
+	/* TAGKEYS(            XK_9,                 8) */
 };
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
-	/* click                event mask      button          function        argument */
-	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
-	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
-	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
-	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
-	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
-	{ ClkTagBar,            0,              Button1,        view,           {0} },
-	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
-	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
-	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+	/* Click         Event mask  Button   Function        Argument */
+	{ ClkLtSymbol,   0,          Button1, setlayout,      {0} },
+	{ ClkLtSymbol,   0,          Button3, setlayout,      {.v = &layouts[2]} },
+	{ ClkWinTitle,   0,          Button2, zoom,           {0} },
+	{ ClkStatusText, 0,          Button2, spawn,          {.v = termcmd } },
+	{ ClkClientWin,  MODKEY,     Button1, movemouse,      {0} },
+	{ ClkClientWin,  MODKEY,     Button2, togglefloating, {0} },
+	{ ClkClientWin,  MODKEY,     Button3, resizemouse,    {0} },
+	{ ClkTagBar,     0,          Button1, view,           {0} },
+	{ ClkTagBar,     0,          Button3, toggleview,     {0} },
+	{ ClkTagBar,     MODKEY,     Button1, tag,            {0} },
+	{ ClkTagBar,     MODKEY,     Button3, toggletag,      {0} },
 };
 
 /* signal definitions */
 /* signum must be greater than 0 */
 /* trigger signals using `xsetroot -name "fsignal:<signum>"` */
 static Signal signals[] = {
-	/* signum       function        argument  */
-	{ 1,            togglefullscr,    {0} },
-	{ 2,            view,           {.ui = 1 << 3} },
+	/* Signum  Function       Argument  */
+	{ 1,       togglefullscr, {0} },
+	{ 2,       view,          {.ui = 1 << 3} },
 };
