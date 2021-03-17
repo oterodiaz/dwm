@@ -254,4 +254,13 @@ static Signal signals[] = {
     /* Signum  Function       Argument  */
     { 1,       togglefullscr, {0} },
     { 2,       view,          {.ui = 1 << 3} },
+
+    /* Layouts */
+    {100,      setlayout,     {.v = &layouts[0]} }, // Tile
+    {101,      setlayout,     {.v = &layouts[1]} }, // Floating
+    {102,      setlayout,     {.v = &layouts[2]} }, // Monocle
+    {103,      setlayout,     {.v = &layouts[3]} }, // CenteredMaster
+    {104,      setlayout,     {.v = &layouts[4]} }, // CenteredFloatingMaster
+    {105,      setlayout,     {.v = &layouts[5]} }, // Spiral
+    {106,      setlayout,     {.v = &layouts[6]} }, // Dwindle
 };
