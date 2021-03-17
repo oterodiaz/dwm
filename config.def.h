@@ -133,11 +133,12 @@ static Key keys[] = {
     { MODKEY,            -1, XK_m,      spawn, SHCMD("mailspring") },                       // Mailspring
 
     /* dmenu */
-    { MODKEY,            -1, XK_slash, spawn, {.v = dmenucmd } },                              // dmenu
-    { MODKEY|ShiftMask,  -1, XK_slash, spawn, SHCMD("/home/diego/.scripts/dmsearch.fish") },   // dmsearch.fish
-    { MODKEY,            -1, XK_space, spawn, SHCMD("/home/diego/.scripts/dmdotfiles.fish") }, // dmdotfiles.fish
-    { MODKEY,            -1, XK_p,     spawn, SHCMD("/home/diego/.scripts/passmenu") },        // passmenu (clipboard)
-    { MODKEY|ShiftMask,  -1, XK_p,     spawn, SHCMD("/home/diego/.scripts/passmenu --type") }, // passmenu (xdotool)
+    { MODKEY,             -1,   XK_slash, spawn, {.v = dmenucmd } },                              // dmenu
+    { MODKEY|ShiftMask,   -1,   XK_slash, spawn, SHCMD("/home/diego/.scripts/dmsearch.fish") },   // dmsearch.fish
+    { MODKEY,             -1,   XK_space, spawn, SHCMD("/home/diego/.scripts/dmdotfiles.fish") }, // dmdotfiles.fish
+    { MODKEY|ControlMask, XK_l, XK_l,     spawn, SHCMD("/home/diego/.scripts/dmlayouts.fish") },  // dmlayouts.fish
+    { MODKEY,             -1,   XK_p,     spawn, SHCMD("/home/diego/.scripts/passmenu") },        // passmenu (clipboard)
+    { MODKEY|ShiftMask,   -1,   XK_p,     spawn, SHCMD("/home/diego/.scripts/passmenu --type") }, // passmenu (xdotool)
 
     /* Screenshots */
     { MODKEY,             -1, XK_s, spawn, SHCMD("/home/diego/.scripts/screenshot.fish --area-clipboard") },   // Screenshot copy area
