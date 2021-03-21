@@ -19,6 +19,12 @@ static const unsigned int baralpha                = 0x44; // Bar opacity in Hex 
 static const unsigned int systraypinning          = 0;    // 0: Sloppy systray follows selected monitor, >0: Pin systray to monitor X
 static const int          systraypinningfailfirst = 1;    // 0: display systray on the last monitor, 1: If pinning fails, display systray on the first monitor
 
+/* Anybar */
+static const int  usealtbar     = 1;              // 1 means use non-dwm status bar
+static const char *altbarclass  = "Polybar";      // Alternate bar class name
+static const char *alttrayname  = "tray";         // Polybar tray instance name
+static const char *altbarcmd    = "$HOME/bar.sh"; // Alternate bar launch command
+
 /* Swallow */
 static const int swallowfloating = 0;   // 0: Do nothing, 1: Swallow floating windows by default
 
