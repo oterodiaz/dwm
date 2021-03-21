@@ -37,6 +37,7 @@ You can find these and other patches and instructions on how to apply them on su
 + focusadjacenttag      - Pretty self explanatory
 + keychain              - Bind key chords emacs style
 + anybar                - Adds the ability to use lemonbar or polybar instead of the default bar
++ ipc                   - Communicate with dwm through the shell (for polybar)
 
 # Dependencies
 You will need the following packages in order to build this fork:
@@ -48,10 +49,10 @@ You will need the following packages in order to build this fork:
 + libxft (with BGRA patch if you want emojis)
 + Xinerama
 + fontconfig
++ yajl
 
-I also use these fonts, which I'd rather not provide you with due to licensing (hint: use the internet)
+I also use this font, which I'd rather not provide you with due to licensing (hint: use the internet)
 
-+ SFMono
 + SFMono Nerd Font
 
 And a few utilities like `dwmblocks`, `redshift` or `amixer` and personal scripts that you can find on my [scripts repository](https://gitlab.com/Nero20/scripts).
