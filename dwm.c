@@ -2235,6 +2235,9 @@ setup(void)
 	for (i = 0; i < LENGTH(colors); i++)
  		scheme[i] = drw_scm_create(drw, colors[i], alphas[i], 3);
 	/* init system tray */
+    if (usealtbar && showsystray) {
+        showsystray = !showsystray;
+    }
 	updatesystray();
 	/* init bars */
 	updatebars();
@@ -2477,6 +2480,10 @@ togglebar(const Arg *arg)
 void
 togglesystray()
 {
+    if (usealtbar) {
+        return;
+    }
+
     if (showsystray) {
                XUnmapWindow(dpy, systray->win);
     }
