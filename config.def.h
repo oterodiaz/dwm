@@ -205,23 +205,23 @@ static Key keys[] = {
     { MODKEY|ControlMask, XK_l, XK_d, setlayout, {.v = &layouts[6]} }, // Dwindle
 
     /* Volume */
-    { 0,         -1, 0x1008ff13, spawn, SHCMD("pamixer -i 5 && kill -44 $(pidof dwmblocks)") },             // +5%
-    { 0,         -1, 0x1008ff11, spawn, SHCMD("pamixer -d 5 && kill -44 $(pidof dwmblocks)") },             // -5%
-    { ShiftMask, -1, 0x1008ff13, spawn, SHCMD("pamixer --set-volume 100 && kill -44 $(pidof dwmblocks)") }, // 100%
-    { ShiftMask, -1, 0x1008ff11, spawn, SHCMD("pamixer --set-volume 50 && kill -44 $(pidof dwmblocks)") },  // 50%
-    { 0,         -1, 0x1008ff12, spawn, SHCMD("pamixer -t && kill -44 $(pidof dwmblocks)") },               // Mute
+    { 0,         -1, 0x1008ff13, spawn, SHCMD("pamixer -i 5 && polybar-msg hook volume 1") },             // +5%
+    { 0,         -1, 0x1008ff11, spawn, SHCMD("pamixer -d 5 && polybar-msg hook volume 1") },             // -5%
+    { ShiftMask, -1, 0x1008ff13, spawn, SHCMD("pamixer --set-volume 100 && polybar-msg hook volume 1") }, // 100%
+    { ShiftMask, -1, 0x1008ff11, spawn, SHCMD("pamixer --set-volume 50 && polybar-msg hook volume 1") },  // 50%
+    { 0,         -1, 0x1008ff12, spawn, SHCMD("pamixer -t && polybar-msg hook volume 1") },               // Mute
 
     /* Brightness */
-    { 0,         -1, 0x1008ff03, spawn, SHCMD("/home/diego/.scripts/brightness.py -r -10 && kill -45 $(pidof dwmblocks)") }, // -10%
-    { 0,         -1, 0x1008ff02, spawn, SHCMD("/home/diego/.scripts/brightness.py -r 10 && kill -45 $(pidof dwmblocks)") },  // +10%
-    { ShiftMask, -1, 0x1008ff03, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 0 && kill -45 $(pidof dwmblocks)") },   // 0%
-    { ShiftMask, -1, 0x1008ff02, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 100 && kill -45 $(pidof dwmblocks)") }, // 100%
-    { MODKEY,    -1, 0x1008ff02, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },  // 50%
-    { MODKEY,    -1, 0x1008ff03, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },  // 50%
+    { 0,         -1, 0x1008ff03, spawn, SHCMD("/home/diego/.scripts/brightness.py -r -10 && polybar-msg hook brightness 1") }, // -10%
+    { 0,         -1, 0x1008ff02, spawn, SHCMD("/home/diego/.scripts/brightness.py -r 10 && polybar-msg hook brightness 1") },  // +10%
+    { ShiftMask, -1, 0x1008ff03, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 0 && polybar-msg hook brightness 1") },   // 0%
+    { ShiftMask, -1, 0x1008ff02, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 100 && polybar-msg hook brightness 1") }, // 100%
+    { MODKEY,    -1, 0x1008ff02, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 50 && polybar-msg hook brightness 1") },  // 50%
+    { MODKEY,    -1, 0x1008ff03, spawn, SHCMD("/home/diego/.scripts/brightness.py -s 50 && polybar-msg hook brightness 1") },  // 50%
 
     /* Blue Light Filter */
-    { MODKEY, -1, XK_F2, spawn, SHCMD("redshift -x && fish -c 'set -Ux REDSHIFT_ON false' && kill -45 $(pidof dwmblocks)") },        // Disable redshift
-    { MODKEY, -1, XK_F1, spawn, SHCMD("redshift -P -O 3500 && fish -c 'set -Ux REDSHIFT_ON true' && kill -45 $(pidof dwmblocks)") }, // Enable redshift
+    { MODKEY, -1, XK_F2, spawn, SHCMD("redshift -x && fish -c 'set -Ux REDSHIFT_ON false' && polybar-msg hook brightness 1") },        // Disable redshift
+    { MODKEY, -1, XK_F1, spawn, SHCMD("redshift -P -O 3500 && fish -c 'set -Ux REDSHIFT_ON true' && polybar-msg hook brightness 1") }, // Enable redshift
 
     /* Unused keybindings */
     /* { MODKEY,           XK_z,      zoom,      {0} }, */
