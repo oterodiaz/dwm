@@ -23,7 +23,7 @@ static const int          systraypinningfailfirst = 1;    // 0: display systray 
 static const int  usealtbar     = 1;              // 1 means use non-dwm status bar
 static const char *altbarclass  = "Polybar";      // Alternate bar class name
 static const char *alttrayname  = "tray";         // Polybar tray instance name
-static const char *altbarcmd    = "$HOME/bar.sh"; // Alternate bar launch command
+static const char *altbarcmd    = "$HOME/.config/polybar/launch.sh"; // Alternate bar launch command
 
 /* Swallow */
 static const int swallowfloating = 0;   // 0: Do nothing, 1: Swallow floating windows by default
@@ -51,7 +51,7 @@ static const unsigned int alphas[][3]      = {
 /* Autostart */
 static const char *const autostart[] = {
     "/home/diego/.config/dwm/autostart.sh", NULL,
-    "dwmblocks", NULL,
+    /* "dwmblocks", NULL, */
     NULL /* Terminate */
 };
 
