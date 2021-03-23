@@ -1944,8 +1944,10 @@ restack(Monitor *m)
 	XWindowChanges wc;
 
 	drawbar(m);
-	if (!m->sel)
+	if (!m->sel) {
+		XSync(dpy, False);
 		return;
+	}
 	if (m->sel->isfloating || !m->lt[m->sellt]->arrange)
 		XRaiseWindow(dpy, m->sel->win);
 
@@ -2580,14 +2582,16 @@ togglebar(const Arg *arg)
      * for. Scanning it too early while the tray is being populated would give
      * wrong dimensions.
      */
-    if (usealtbar && !selmon->traywin)
+    if (usealtbar && !selmon->traywin) {
         scantray();
+	}
 
 	selmon->showbar = selmon->pertag->showbars[selmon->pertag->curtag] = !selmon->showbar;
 	updatebarpos(selmon);
 	resizebarwin(selmon);
-    if (usealtbar)
+    if (usealtbar) {
         XMoveResizeWindow(dpy, selmon->traywin, selmon->tx, selmon->by, selmon->tw, selmon->bh);
+	}
 	if (showsystray) {
 		XWindowChanges wc;
 		if (!selmon->showbar)
@@ -2830,8 +2834,9 @@ unmapnotify(XEvent *e)
 void
 updatebars(void)
 {
-    if (usealtbar)
+    if (usealtbar) {
         return;
+	}
 
 	unsigned int w;
 	Monitor *m;
