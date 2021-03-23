@@ -180,6 +180,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,  -1, XK_equal,     setgaps,           {.i = GAP_TOGGLE} }, // Toggle gaps
     { MODKEY|ShiftMask,  -1, XK_BackSpace, quit,              {0} },               // Quit dwm
     { MODKEY|ShiftMask,  -1, XK_r,         quit,              {1} },               // Restart dwm
+    { MODKEY|ControlMask,-1, XK_r,         spawn,             SHCMD("polybar-msg cmd restart") }, // Restart polybar
 
     /* Stacker */
     STACKKEYS(MODKEY, focus)
