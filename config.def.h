@@ -158,6 +158,8 @@ static Key keys[] = {
     { MODKEY|ShiftMask,  -1, XK_b,         togglesystray,     {0} },               // Toggle the systray
     { MODKEY,            -1, XK_i,         incnmaster,        {.i = +1 } },        // Increase number of master windows
     { MODKEY,            -1, XK_d,         incnmaster,        {.i = -1 } },        // Decrease number of master windows
+    { MODKEY,            -1, XK_comma,     setmfact,          {.f = 1.5} },        // Balance vertical split
+    { MODKEY|ShiftMask,  -1, XK_comma,     setmfact,          {.f = 1.55} },       // Reset vertical split
     { MODKEY,            -1, XK_h,         setmfact,          {.f = -0.05} },      // Move vertical split to the left
     { MODKEY,            -1, XK_l,         setmfact,          {.f = +0.05} },      // Move vertical split to the right
     { MODKEY|ShiftMask,  -1, XK_h,         setcfact,          {.f = +0.25} },      // Decrease window weight
