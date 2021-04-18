@@ -134,6 +134,7 @@ static Key keys[] = {
     { MODKEY,            -1, XK_t,      spawn, SHCMD("telegram-desktop") },                 // Telegram
     { MODKEY,            -1, XK_y,      spawn, SHCMD("pamixer -t; pamixer -t; freetube") }, // FreeTube
     { MODKEY,            -1, XK_o,      spawn, SHCMD("notion-app") },                       // Notion
+    { MODKEY,            -1, XK_g,      spawn, SHCMD("gfclient") },                         // GameForge Client
     { MODKEY|Mod1Mask,   -1, XK_h,      spawn, SHCMD("sxiv /home/diego/horario") },         // Timetable
     { MODKEY,            -1, XK_n,      spawn, SHCMD("nitrogen") },                         // Nitrogen
     { MODKEY,            -1, XK_m,      spawn, SHCMD("mailspring") },                       // Mailspring
