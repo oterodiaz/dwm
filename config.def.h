@@ -70,11 +70,11 @@ static const Rule rules[] = {
     { "firefox",      NULL,     NULL,               1 << 3,    0,          0,          -1,        -1,           0 },
     { "Brave-browser",NULL,     NULL,               1 << 3,    0,          0,          -1,        -1,           0 },
     { "FreeTube",     NULL,     NULL,               1 << 3,    0,          0,          -1,        -1,           0 },
-    { NULL,           NULL,     "Gameforge",        1 << 2,    0,          0,          -1,        -1,           0 },
-    { NULL,           NULL,     "Lutris",           1 << 2,    0,          0,          -1,        -1,           0 },
+    { "Lutris",       NULL,     NULL,               1 << 2,    0,          0,          -1,        -1,           0 },
     { "pcmanfm",      NULL,     NULL,               0,         0,          0,           1,        -1,           0 },
     { "Pcmanfm",      NULL,     NULL,               0,         0,          0,           1,        -1,           0 },
     { "Alacritty",    NULL,     NULL,               0,         0,          1,           0,        -1,           0 },
+    { NULL,           NULL,     "Gameforge",        1 << 2,    0,          0,          -1,        -1,           0 },
     { NULL,           NULL,     "Arcolinux Logout", 0,         0,          0,           1,        -1,           1 },
     { NULL,           NULL,     "Event Tester",     0,         0,          0,           1,        -1,           0 }, // xev
     /* { "Firefox",   NULL,     NULL,               1 << 8,    0,          0,          -1,        -1            0 }, */
