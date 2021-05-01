@@ -49,6 +49,12 @@ You will need the following packages in order to build this fork:
 + Xinerama
 + fontconfig
 
+Arch Linux:
+
+`# pacman -S libxrender libxcb libxinerama fontconfig libxft` or
+
+`# paru -S libxrender libxcb libxinerama fontconfig libxft-bgra`
+
 I also use this font, which I'd rather not provide you with due to licensing (hint: use the internet)
 
 + SFMono Nerd Font
