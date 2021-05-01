@@ -53,9 +53,11 @@ You will need the following packages in order to build this fork:
 
 Arch Linux:
 
-`# pacman -S libxrender libxcb libxinerama fontconfig libxft` or
+`# pacman -S libxrender libxcb libxinerama fontconfig libxft`
 
-`# paru -S libxrender libxcb libxinerama fontconfig libxft-bgra`
+or, for libxft-bgra:
+
+`$ paru -S libxrender libxcb libxinerama fontconfig libxft-bgra`
 
 I also use this font, which I'd rather not provide you with due to licensing (hint: use the internet)
 
