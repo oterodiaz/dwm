@@ -38,6 +38,8 @@ You can find these and other patches and instructions on how to apply them on su
 + keychain              - Bind key chords emacs style
 + anybar                - Adds the ability to use lemonbar or polybar instead of the default bar
 + ipc                   - Communicate with dwm through the shell (for polybar)
++ statuscmd-signal      - Make dwmblocks modules clickable
++ shiftview             - Better version of focusadjacenttag (they complement each other)
 
 # Dependencies
 You will need the following packages in order to build this fork:
