@@ -169,8 +169,8 @@ static Key keys[] = {
     { MODKEY|ShiftMask,  -1, XK_l,         setcfact,          {.f = -0.25} },      // Increase window weight
     { MODKEY|ShiftMask,  -1, XK_o,         setcfact,          {.f =  0.00} },      // Reset window weight
     { MODKEY,            -1, XK_Tab,       view,              {0} },               // View recent tag
-    { MODKEY,            -1, XK_Left,      viewtoleft,        {0} },               // View left tag
-    { MODKEY,            -1, XK_Right,     viewtoright,       {0} },               // View right tag
+    { MODKEY,            -1, XK_Left,      shiftview,         {.i = -1} },         // View left tag
+    { MODKEY,            -1, XK_Right,     shiftview,         {.i = +1} },         // View right tag
     { MODKEY|ShiftMask,  -1, XK_Left,      tagtoleft,         {0} },               // Move window to left tag
     { MODKEY|ShiftMask,  -1, XK_Right,     tagtoright,        {0} },               // Move window to right tag
     { MODKEY,            -1, XK_q,         killclient,        {0} },               // Close focused window
@@ -257,8 +257,8 @@ static Button buttons[] = {
     { ClkClientWin,  MODKEY,     Button1, movemouse,      {0} },
     { ClkClientWin,  MODKEY,     Button2, togglefloating, {0} },
     { ClkClientWin,  MODKEY,     Button3, resizemouse,    {0} },
-    { ClkTagBar,     0,          Button4, viewtoleft,     {0} },
-    { ClkTagBar,     0,          Button5, viewtoright,    {0} },
+    { ClkTagBar,     0,          Button4, shiftview,      {.i = -1} },
+    { ClkTagBar,     0,          Button5, shiftview,      {.i = +1} },
     { ClkTagBar,     0,          Button1, view,           {0} },
     { ClkTagBar,     0,          Button3, toggleview,     {0} },
     { ClkTagBar,     MODKEY,     Button1, tag,            {0} },
