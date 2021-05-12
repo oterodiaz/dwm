@@ -37,6 +37,7 @@ You can find these and other patches and instructions on how to apply them on su
 + focusadjacenttag      - Pretty self explanatory
 + keychain              - Bind key chords emacs style
 + statuscmd-signal      - Make dwmblocks modules clickable
++ shiftview             - Better version of focusadjacenttag (they complement each other)
 
 # Dependencies
 You will need the following packages in order to build this fork:
