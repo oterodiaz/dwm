@@ -117,7 +117,7 @@ static const Layout layouts[] = {
 
 /* Commands */
 static char        dmenumon[2]     = "0";        // component of dmenucmd, manipulated in spawn()
-static char        dmenuheight[3]  = "25";       // dmenu height
+static char        dmenuheight[3]  = "30";       // dmenu height
 static char        dmenuopacity[4] = "0.65";     // Values from 0 (transparent) to 1 (opaque)
 static char        dmenudim[4]     = "0";        // Values from 0 (transparent) to 1 (opaque)
 static const char *termcmd[]       = { "alacritty", NULL };
