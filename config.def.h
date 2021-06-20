@@ -68,6 +68,9 @@ static const Rule rules[] = {
     /* Class          Instance  Title               Tags mask  isfloating  isterminal  noswallow  monitor      fullscreen*/
     { "Telegram",     NULL,     NULL,               ~0,        1,          0,           0,        -1,           0 },
     { "firefox",      NULL,     NULL,               1 << 3,    0,          0,          -1,        -1,           0 },
+    { "Firefox",      NULL,     NULL,               1 << 3,    0,          0,          -1,        -1,           0 },
+    { "LibreWolf",    NULL,     NULL,               1 << 3,    0,          0,          -1,        -1,           0 },
+    { "Tor Browser",  NULL,     NULL,               1 << 3,    1,          0,          -1,        -1,           0 },
     { "Brave-browser",NULL,     NULL,               1 << 3,    0,          0,          -1,        -1,           0 },
     { "FreeTube",     NULL,     NULL,               1 << 3,    0,          0,          -1,        -1,           0 },
     { "Lutris",       NULL,     NULL,               1 << 2,    0,          0,          -1,        -1,           0 },
