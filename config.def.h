@@ -11,11 +11,12 @@ static const unsigned int borderalpha     = OPAQUE; // Fix window borders being 
 static const int          topbar                  = 1;    // 0: Bottom bar, 1: Top bar
 static const int          showbar                 = 1;    // 0: Hide bar, 1: Show bar
 static int                showsystray             = 1;    // 0: Hide systray, 1: Show systray
-static const int          user_bh                 = 25;   // Bar height in pixels (0: Calculate bar height, >=1: user_bh as bar height)
+static const int          user_bh                 = 35;   // Bar height in pixels (0: Calculate bar height, >=1: user_bh as bar height)
 static const int          horizpadbar             = 2;    // Horizontal padding for statusbar in pixels
 static const int          vertpadbar              = 0;    // Vertical padding for statusbar in pixels
 static const unsigned int systrayspacing          = 2;    // Systray spacing in pixels
-static const unsigned int baralpha                = 0x44; // Bar opacity in Hex (0xff is opaque)
+/* static const unsigned int baralpha                = 0x44; // Bar opacity in Hex (0xff is opaque) */
+static const unsigned int baralpha                = 0xff; // Bar opacity in Hex (0xff is opaque)
 static const unsigned int systraypinning          = 0;    // 0: Sloppy systray follows selected monitor, >0: Pin systray to monitor X
 static const int          systraypinningfailfirst = 1;    // 0: display systray on the last monitor, 1: If pinning fails, display systray on the first monitor
 
@@ -31,11 +32,12 @@ static const char col_gray1[]  = "#222222";
 static const char col_gray2[]  = "#444444";
 static const char col_gray3[]  = "#bbbbbb";
 static const char col_gray4[]  = "#eeeeee";
-static const char col_cyan[]   = "#9F0BD9"; // Accent
+static const char col_bar[]    = "#888780";
+static const char col_window_border[]   = "#888780";
 static const char *colors[][3] = {
 	/* Format: Foreground, Background, Border */
     [SchemeNorm] = { col_gray3, col_gray1, col_gray2 }, // Regular windows
-    [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  }, // Focused windows
+    [SchemeSel]  = { col_gray4, col_bar,  col_window_border  }, // Focused windows
 };
 static const unsigned int alphas[][3]      = {
     [SchemeNorm] = { OPAQUE, baralpha, borderalpha },
@@ -114,12 +116,12 @@ static const Layout layouts[] = {
 
 /* Commands */
 static char        dmenumon[2]     = "0";        // component of dmenucmd, manipulated in spawn()
-static char        dmenuheight[3]  = "25";       // dmenu height
+static char        dmenuheight[3]  = "35";       // dmenu height
 static char        dmenuopacity[4] = "0.65";     // Values from 0 (transparent) to 1 (opaque)
 static char        dmenudim[4]     = "0";        // Values from 0 (transparent) to 1 (opaque)
 static const char *termcmd[]       = { "alacritty", NULL };
 static const char *dmenucmd[]      = \
-{ "dmenu_run", "-s", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-o", dmenuopacity, "-dim", dmenudim, "-h", dmenuheight, NULL };
+{ "dmenu_run", "-s", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_window_border, "-sf", col_gray4, "-o", dmenuopacity, "-dim", dmenudim, "-h", dmenuheight, NULL };
 
 /* Keybindings */
 static Key keys[] = {
