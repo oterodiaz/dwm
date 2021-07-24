@@ -137,6 +137,7 @@ static Key keys[] = {
     { MODKEY,            -1, XK_Return, spawn, {.v = termcmd } },                           // Terminal
     { MODKEY|ShiftMask,  -1, XK_Return, spawn, SHCMD("pcmanfm") },                          // File manager
     { MODKEY,            -1, XK_w,      spawn, SHCMD("brave") },                            // Web browser
+    { MODKEY,            -1, XK_r,      spawn, SHCMD("brave '192.168.0.1'") },              // Web browser (Router)
     { MODKEY,            -1, XK_e,      spawn, SHCMD("emacsclient -c -a 'emacs'") },        // Emacs
     { MODKEY,            -1, XK_t,      spawn, SHCMD("telegram-desktop") },                 // Telegram
     { MODKEY,            -1, XK_y,      spawn, SHCMD("freetube") },                         // FreeTube
