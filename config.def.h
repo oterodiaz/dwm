@@ -140,6 +140,7 @@ static Key keys[] = {
     { MODKEY|Mod1Mask,   -1, XK_h,      spawn, SHCMD("sxiv /home/diego/horario") },         // Timetable
     { MODKEY,            -1, XK_n,      spawn, SHCMD("nitrogen") },                         // Nitrogen
     { MODKEY,            -1, XK_m,      spawn, SHCMD("mailspring") },                       // Mailspring
+    { MODKEY,            -1, XK_m,      spawn, SHCMD("mailspring") },                       // Mailspring
 
     /* dmenu */
     { MODKEY,             -1,   XK_slash, spawn, {.v = dmenucmd } },                              // dmenu
@@ -150,10 +151,10 @@ static Key keys[] = {
     { MODKEY|ShiftMask,   -1,   XK_p,     spawn, SHCMD("/home/diego/.scripts/passmenu --type") }, // passmenu (xdotool)
 
     /* Screenshots */
-    { MODKEY,             -1, XK_s, spawn, SHCMD("/home/diego/.scripts/screenshot.fish --area-clipboard") },   // Screenshot copy area
-    { MODKEY|ShiftMask,   -1, XK_s, spawn, SHCMD("/home/diego/.scripts/screenshot.fish --screen-clipboard") }, // Screenshot copy screen
-    { Mod1Mask,           -1, XK_s, spawn, SHCMD("/home/diego/.scripts/screenshot.fish --area-file") },        // Screenshot save area
-    { Mod1Mask|ShiftMask, -1, XK_s, spawn, SHCMD("/home/diego/.scripts/screenshot.fish --screen-file") },      // Screenshot save screen
+    { MODKEY,                -1, XK_s, spawn, SHCMD("/home/diego/.scripts/screenshot.fish --area-clipboard") },   // Screenshot copy area
+    { MODKEY|ShiftMask,      -1, XK_s, spawn, SHCMD("/home/diego/.scripts/screenshot.fish --screen-clipboard") }, // Screenshot copy screen
+    { ControlMask,           -1, XK_s, spawn, SHCMD("/home/diego/.scripts/screenshot.fish --area-file") },        // Screenshot save area
+    { ControlMask|ShiftMask, -1, XK_s, spawn, SHCMD("/home/diego/.scripts/screenshot.fish --screen-file") },      // Screenshot save screen
 
     /* dwm */
     { MODKEY,            -1, XK_f,         togglefullscr,     {0} },               // Toggle fullscreen on the focused window
