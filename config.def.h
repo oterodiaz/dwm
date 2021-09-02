@@ -11,12 +11,11 @@ static const unsigned int borderalpha     = OPAQUE; // Fix window borders being 
 static const int          topbar                  = 1;    // 0: Bottom bar, 1: Top bar
 static const int          showbar                 = 1;    // 0: Hide bar, 1: Show bar
 static int                showsystray             = 1;    // 0: Hide systray, 1: Show systray
-static const int          user_bh                 = 35;   // Bar height in pixels (0: Calculate bar height, >=1: user_bh as bar height)
+static const int          user_bh                 = 30;   // Bar height in pixels (0: Calculate bar height, >=1: user_bh as bar height)
 static const int          horizpadbar             = 2;    // Horizontal padding for statusbar in pixels
 static const int          vertpadbar              = 0;    // Vertical padding for statusbar in pixels
 static const unsigned int systrayspacing          = 2;    // Systray spacing in pixels
-/* static const unsigned int baralpha                = 0x44; // Bar opacity in Hex (0xff is opaque) */
-static const unsigned int baralpha                = 0xff; // Bar opacity in Hex (0xff is opaque)
+static const unsigned int baralpha                = 0x88; // Bar opacity in Hex (0xff is opaque)
 static const unsigned int systraypinning          = 0;    // 0: Sloppy systray follows selected monitor, >0: Pin systray to monitor X
 static const int          systraypinningfailfirst = 1;    // 0: display systray on the last monitor, 1: If pinning fails, display systray on the first monitor
 
