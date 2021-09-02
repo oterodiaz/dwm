@@ -147,6 +147,7 @@ static Key keys[] = {
     { MODKEY,            -1, XK_n,      spawn, SHCMD("nitrogen") },                         // Nitrogen
     { MODKEY,            -1, XK_m,      spawn, SHCMD("mailspring") },                       // Mailspring
     { MODKEY,            -1, XK_a,      spawn, SHCMD("/home/diego/.scripts/switch_dark_light_theme.sh") }, // Theme switch
+    { MODKEY|ShiftMask,  -1, XK_a,      spawn, SHCMD("SWITCH_POLYBAR=1 /home/diego/.scripts/switch_dark_light_theme.sh") }, // Theme switch
 
     /* dmenu */
     { MODKEY,             -1,   XK_slash, spawn, {.v = dmenucmd } },                              // dmenu
