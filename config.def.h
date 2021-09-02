@@ -33,6 +33,7 @@ static const char col_gray3[]  = "#bbbbbb";
 static const char col_gray4[]  = "#eeeeee";
 static const char col_bar[]    = "#888780";
 static const char col_window_border[]   = "#888780";
+static const char col_dmenu[]   = "#AC2993";
 static const char *colors[][3] = {
 	/* Format: Foreground, Background, Border */
     [SchemeNorm] = { col_gray3, col_gray1, col_gray2 }, // Regular windows
@@ -115,12 +116,12 @@ static const Layout layouts[] = {
 
 /* Commands */
 static char        dmenumon[2]     = "0";        // component of dmenucmd, manipulated in spawn()
-static char        dmenuheight[3]  = "35";       // dmenu height
+static char        dmenuheight[3]  = "30";       // dmenu height
 static char        dmenuopacity[4] = "0.65";     // Values from 0 (transparent) to 1 (opaque)
 static char        dmenudim[4]     = "0";        // Values from 0 (transparent) to 1 (opaque)
 static const char *termcmd[]       = { "alacritty", NULL };
 static const char *dmenucmd[]      = \
-{ "dmenu_run", "-s", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_window_border, "-sf", col_gray4, "-o", dmenuopacity, "-dim", dmenudim, "-h", dmenuheight, NULL };
+{ "dmenu_run", "-s", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_dmenu, "-sf", col_gray4, "-o", dmenuopacity, "-dim", dmenudim, "-h", dmenuheight, NULL };
 
 /* Keybindings */
 static Key keys[] = {
