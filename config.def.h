@@ -41,7 +41,7 @@ static const char col_bar[]    = "#AC2993";
 static const char col_window_border[]   = "#AC2993";
 static const char col_dmenu[]   = "#AC2993";
 static const char *colors[][3] = {
-	/* Format: Foreground, Background, Border */
+    /* Format: Foreground, Background, Border */
     [SchemeNorm] = { col_gray3, col_gray1, col_gray2 }, // Regular windows
     [SchemeSel]  = { col_gray4, col_bar,  col_window_border  }, // Focused windows
 };
@@ -64,8 +64,8 @@ static const char *tags[] = { "", "", "", "" };
 /* Rules */
 static const Rule rules[] = {
     /* xprop(1):
-      	WM_CLASS(STRING) = instance, class
-      	WM_NAME(STRING) = title
+        WM_CLASS(STRING) = instance, class
+        WM_NAME(STRING) = title
      */
 
     /* Class          Instance  Title               Tags mask  isfloating  isterminal  noswallow  monitor      fullscreen*/
@@ -132,7 +132,7 @@ static const char *dmenucmd[]      = \
 
 /* Keybindings */
 static Key keys[] = {
-	/* Format: Modifier, Key chain, Key, Function, Argument */
+    /* Format: Modifier, Key chain, Key, Function, Argument */
 
     /* Misc. */
     { MODKEY,            -1, XK_Return, spawn, {.v = termcmd } },                              // Terminal
