@@ -15,7 +15,7 @@ static const int          user_bh                 = 30;   // Bar height in pixel
 static const int          horizpadbar             = 2;    // Horizontal padding for statusbar in pixels
 static const int          vertpadbar              = 0;    // Vertical padding for statusbar in pixels
 static const unsigned int systrayspacing          = 2;    // Systray spacing in pixels
-static const unsigned int baralpha                = 0x88; // Bar opacity in Hex (0xff is opaque)
+static const unsigned int baralpha                = 0x00; // Bar opacity in Hex (0xff is opaque)
 static const unsigned int systraypinning          = 0;    // 0: Sloppy systray follows selected monitor, >0: Pin systray to monitor X
 static const int          systraypinningfailfirst = 1;    // 0: display systray on the last monitor, 1: If pinning fails, display systray on the first monitor
 
@@ -33,7 +33,7 @@ static const char *fonts[]    = { "SFMono Nerd Font:size=11:style=Regular", "App
 static const char dmenufont[] = "SFMono Nerd Font:size=11:style=Regular";
 
 /* Colors */
-static const char col_gray1[]  = "#222222";
+static const char col_gray1[]  = "#000000";
 static const char col_gray2[]  = "#444444";
 static const char col_gray3[]  = "#bbbbbb";
 static const char col_gray4[]  = "#eeeeee";
