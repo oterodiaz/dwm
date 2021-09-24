@@ -39,6 +39,7 @@ static const char col_gray3[]  = "#bbbbbb";
 static const char col_gray4[]  = "#eeeeee";
 static const char col_bar[]    = "#AC2993";
 static const char col_window_border[]   = "#AC2993";
+static const char col_dmenu_bg[]  = "#222222";
 static const char col_dmenu[]   = "#AC2993";
 static const char *colors[][3] = {
     /* Format: Foreground, Background, Border */
@@ -128,7 +129,7 @@ static char        dmenuopacity[4] = "0.65";     // Values from 0 (transparent) 
 static char        dmenudim[4]     = "0";        // Values from 0 (transparent) to 1 (opaque)
 static const char *termcmd[]       = { "alacritty", NULL };
 static const char *dmenucmd[]      = \
-{ "dmenu_run", "-s", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_dmenu, "-sf", col_gray4, "-o", dmenuopacity, "-dim", dmenudim, "-h", dmenuheight, NULL };
+{ "dmenu_run", "-s", dmenumon, "-fn", dmenufont, "-nb", col_dmenu_bg, "-nf", col_gray3, "-sb", col_dmenu, "-sf", col_gray4, "-o", dmenuopacity, "-dim", dmenudim, "-h", dmenuheight, NULL };
 
 /* Keybindings */
 static Key keys[] = {
