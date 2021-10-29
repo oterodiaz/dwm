@@ -24,7 +24,6 @@ static const int swallowfloating = 0;   // 0: Do nothing, 1: Swallow floating wi
 
 /* Fonts */
 static const char *fonts[]    = { "SFMono Nerd Font:size=11:style=Regular", "Apple Color Emoji:size=11" };
-static const char dmenufont[] = "SFMono Nerd Font:size=11:style=Regular";
 
 /* Colors */
 static const char col_gray1[]  = "#000000";
@@ -33,8 +32,6 @@ static const char col_gray3[]  = "#bbbbbb";
 static const char col_gray4[]  = "#eeeeee";
 static const char col_bar[]    = "#AC2993";
 static const char col_window_border[]   = "#AC2993";
-static const char col_dmenu_bg[]  = "#222222";
-static const char col_dmenu[]   = "#AC2993";
 static const char *colors[][3] = {
     /* Format: Foreground, Background, Border */
     [SchemeNorm] = { col_gray3, col_gray1, col_gray2 }, // Regular windows
@@ -117,13 +114,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* Commands */
-static char        dmenumon[2]     = "0";        // component of dmenucmd, manipulated in spawn()
-static char        dmenuheight[3]  = "30";       // dmenu height
-static char        dmenuopacity[4] = "0.65";     // Values from 0 (transparent) to 1 (opaque)
-static char        dmenudim[4]     = "0";        // Values from 0 (transparent) to 1 (opaque)
 static const char *termcmd[]       = { "alacritty", NULL };
-static const char *dmenucmd[]      = \
-{ "dmenu_run", "-s", dmenumon, "-fn", dmenufont, "-nb", col_dmenu_bg, "-nf", col_gray3, "-sb", col_dmenu, "-sf", col_gray4, "-o", dmenuopacity, "-dim", dmenudim, "-h", dmenuheight, NULL };
 
 /* Keybindings */
 static Key keys[] = {
@@ -145,7 +136,7 @@ static Key keys[] = {
     { MODKEY,            -1, XK_a,      spawn, SHCMD("$SCRIPTS/switch_dark_light_theme.sh") }, // Theme switch
 
     /* dmenu */
-    { MODKEY,             -1,   XK_slash, spawn, {.v = dmenucmd } },                       // dmenu
+    { MODKEY,             -1,   XK_slash, spawn, SHCMD("$SCRIPTS/dmrun.sh") },             // dmenu
     { MODKEY|ShiftMask,   -1,   XK_slash, spawn, SHCMD("$SCRIPTS/fish/dmsearch.fish") },   // dmsearch.fish
     { MODKEY,             -1,   XK_space, spawn, SHCMD("$SCRIPTS/fish/dmdotfiles.fish") }, // dmdotfiles.fish
     { MODKEY|ControlMask, XK_l, XK_l,     spawn, SHCMD("$SCRIPTS/fish/dmlayouts.fish") },  // dmlayouts.fish
