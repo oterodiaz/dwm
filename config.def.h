@@ -135,7 +135,7 @@ static Key keys[] = {
     { MODKEY,            -1, XK_r,      spawn, SHCMD("$BROWSER '192.168.0.1'") },              // Web browser (Router)
     { MODKEY,            -1, XK_e,      spawn, SHCMD("emacsclient -c -a 'emacs'") },           // Emacs
     { MODKEY,            -1, XK_t,      spawn, SHCMD("telegram-desktop") },                    // Telegram
-    { MODKEY|ShiftMask,  -1, XK_t,      spawn, SHCMD("signal-desktop") },                      // Signal
+    { MODKEY|ShiftMask,  -1, XK_t,      spawn, SHCMD("signal-desktop --use-tray-icon") },      // Signal
     { MODKEY,            -1, XK_y,      spawn, SHCMD("freetube") },                            // FreeTube
     { MODKEY,            -1, XK_o,      spawn, SHCMD("notion-app") },                          // Notion
     { MODKEY,            -1, XK_g,      spawn, SHCMD("gfclient") },                            // GameForge Client
