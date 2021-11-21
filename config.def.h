@@ -79,10 +79,10 @@ static const Rule rules[] = {
     { "Lutris",       NULL,     NULL,               1 << 2,    0,          0,          -1,        -1,           0 },
     { "pcmanfm",      NULL,     NULL,               0,         0,          0,           1,        -1,           0 },
     { "Pcmanfm",      NULL,     NULL,               0,         0,          0,           1,        -1,           0 },
-    { "Alacritty",    NULL,     NULL,               0,         0,          1,           0,        -1,           0 },
     { NULL,           NULL,     "Gameforge",        1 << 2,    0,          0,          -1,        -1,           0 },
     { NULL,           NULL,     "Arcolinux Logout", 0,         0,          0,           1,        -1,           1 },
     { NULL,           NULL,     "Event Tester",     0,         0,          0,           1,        -1,           0 }, // xev
+    /* { "Alacritty", NULL,     NULL,               0,         0,          1,           0,        -1,           0 }, */
     /* { "Firefox",   NULL,     NULL,               1 << 8,    0,          0,          -1,        -1            0 }, */
     /* { "St",        NULL,     NULL,               0,         0,          1,           0,        -1            0 }, */
 };
