@@ -222,8 +222,7 @@ static Key keys[] = {
     { MODKEY,    -1, 0x1008ff03, spawn, SHCMD("$SCRIPTS/python/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },  // 50%
 
     /* Blue Light Filter */
-    { MODKEY, -1, XK_F2, spawn, SHCMD("redshift.sh off && kill -45 $(pidof dwmblocks)") }, // Disable redshift
-    { MODKEY, -1, XK_F1, spawn, SHCMD("redshift.sh on && kill -45 $(pidof dwmblocks)") },  // Enable redshift
+    { MODKEY, -1, XK_F1, spawn, SHCMD("redshift.sh && kill -45 $(pidof dwmblocks)") },  // Toggle redshift
 
     /* Unused keybindings */
     /* { MODKEY,           XK_z,      zoom,      {0} }, */
