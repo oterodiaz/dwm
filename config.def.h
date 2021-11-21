@@ -136,7 +136,6 @@ static Key keys[] = {
     { MODKEY|Mod1Mask,   -1, XK_h,      spawn, SHCMD("sxiv $HOME/horario") },                  // Timetable
     { MODKEY,            -1, XK_n,      spawn, SHCMD("nitrogen") },                            // Nitrogen
     { MODKEY,            -1, XK_m,      spawn, SHCMD("mailspring") },                          // Mailspring
-    { MODKEY,            -1, XK_a,      spawn, SHCMD("$SCRIPTS/switch_dark_light_theme.sh") }, // Theme switch
 
     /* dmenu */
     { MODKEY,             -1,   XK_slash, spawn, SHCMD("$SCRIPTS/dmrun.sh") },             // dmenu
@@ -223,6 +222,9 @@ static Key keys[] = {
 
     /* Blue Light Filter */
     { MODKEY, -1, XK_F1, spawn, SHCMD("redshift.sh && kill -45 $(pidof dwmblocks)") },  // Toggle redshift
+
+    /* Dark Mode */
+    { MODKEY, -1, XK_F2, spawn, SHCMD("$SCRIPTS/switch_dark_light_theme.sh") }, // Toggle dark mode
 
     /* Unused keybindings */
     /* { MODKEY,           XK_z,      zoom,      {0} }, */
