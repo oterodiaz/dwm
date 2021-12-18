@@ -224,7 +224,7 @@ static Key keys[] = {
     { MODKEY, -1, XK_F1, spawn, SHCMD("redshift.sh && kill -45 $(pidof dwmblocks)") },  // Toggle redshift
 
     /* Dark Mode */
-    { MODKEY, -1, XK_F2, spawn, SHCMD("$SCRIPTS/switch_dark_light_theme.sh") }, // Toggle dark mode
+    { MODKEY, -1, XK_F2, spawn, SHCMD("dark_mode.sh") }, // Toggle dark mode
 
     /* Unused keybindings */
     /* { MODKEY,           XK_z,      zoom,      {0} }, */
