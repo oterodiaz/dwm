@@ -45,7 +45,7 @@ static const unsigned int alphas[][3]      = {
 /* Autostart */
 /* Note: You can't use $HOME in here */
 static const char *const autostart[] = {
-    "/home/diego/.config/dwm/autostart.sh", NULL,
+    "autostart.sh", "dwm", NULL,
     "dwmblocks", NULL,
     NULL /* Terminate */
 };
