@@ -57,7 +57,7 @@ static const char *const autostart[] = {
 };
 
 /* Tags */
-static const char *tags[] = { "", "", "", "" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 /* Rules */
 static const Rule rules[] = {
@@ -70,16 +70,8 @@ static const Rule rules[] = {
     { "Telegram",     NULL,     NULL,               ~0,        1,          0,           0,        -1,           0 },
     { "Signal",       NULL,     NULL,               ~0,        1,          0,           0,        -1,           0 },
     { "signal",       NULL,     NULL,               ~0,        1,          0,           0,        -1,           0 },
-    { "firefox",      NULL,     NULL,               1 << 3,    0,          0,          -1,        -1,           0 },
-    { "Firefox",      NULL,     NULL,               1 << 3,    0,          0,          -1,        -1,           0 },
-    { "LibreWolf",    NULL,     NULL,               1 << 3,    0,          0,          -1,        -1,           0 },
-    { "Tor Browser",  NULL,     NULL,               1 << 3,    1,          0,          -1,        -1,           0 },
-    { "Brave-browser",NULL,     NULL,               1 << 3,    0,          0,          -1,        -1,           0 },
-    { "FreeTube",     NULL,     NULL,               1 << 3,    0,          0,          -1,        -1,           0 },
-    { "Lutris",       NULL,     NULL,               1 << 2,    0,          0,          -1,        -1,           0 },
     { "pcmanfm",      NULL,     NULL,               0,         0,          0,           1,        -1,           0 },
     { "Pcmanfm",      NULL,     NULL,               0,         0,          0,           1,        -1,           0 },
-    { NULL,           NULL,     "Gameforge",        1 << 2,    0,          0,          -1,        -1,           0 },
     { NULL,           NULL,     "Arcolinux Logout", 0,         0,          0,           1,        -1,           1 },
     { NULL,           NULL,     "Event Tester",     0,         0,          0,           1,        -1,           0 }, // xev
     /* { "Alacritty", NULL,     NULL,               0,         0,          1,           0,        -1,           0 }, */
@@ -196,8 +188,13 @@ static Key keys[] = {
     /* Tags */
     TAGKEYS( -1, XK_1, 0) // First tag
     TAGKEYS( -1, XK_2, 1) // Second tag
-    TAGKEYS( -1, XK_3, 2) // Third tag
-    TAGKEYS( -1, XK_4, 3) // Fourth tag
+    TAGKEYS( -1, XK_3, 2) // ...
+    TAGKEYS( -1, XK_4, 3)
+    TAGKEYS( -1, XK_5, 4)
+    TAGKEYS( -1, XK_6, 5)
+    TAGKEYS( -1, XK_7, 6)
+    TAGKEYS( -1, XK_8, 7)
+    TAGKEYS( -1, XK_9, 8)
 
     /* Lock/Log Out */
     { MODKEY|ShiftMask,   -1, XK_q, spawn, SHCMD("arcologout") }, // Arcologout
