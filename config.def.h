@@ -23,7 +23,7 @@ static const int          systraypinningfailfirst = 1;    // 0: display systray 
 static const int  usealtbar     = 1;              // 1 means use non-dwm status bar
 static const char *altbarclass  = "Polybar";      // Alternate bar class name
 static const char *alttrayname  = "tray";         // Polybar tray instance name
-static const char *altbarcmd    = "$HOME/.config/polybar/launch.sh"; // Alternate bar launch command
+static const char *altbarcmd    = "$HOME/.config/polybar/launch_dwm.sh"; // Alternate bar launch command
 
 /* Swallow */
 static const int swallowfloating = 0;   // 0: Do nothing, 1: Swallow floating windows by default
@@ -52,7 +52,6 @@ static const unsigned int alphas[][3]      = {
 /* Note: You can't use $HOME in here */
 static const char *const autostart[] = {
     "autostart.sh", "dwm", NULL,
-    /* "dwmblocks", NULL, */
     NULL /* Terminate */
 };
 
@@ -121,19 +120,19 @@ static Key keys[] = {
     /* Format: Modifier, Key chain, Key, Function, Argument */
 
     /* Misc. */
-    { MODKEY,            -1, XK_Return, spawn, {.v = termcmd } },                              // Terminal
-    { MODKEY|ShiftMask,  -1, XK_Return, spawn, SHCMD("pcmanfm") },                             // File manager
-    { MODKEY,            -1, XK_w,      spawn, SHCMD("$BROWSER") },                            // Web browser
-    { MODKEY,            -1, XK_r,      spawn, SHCMD("$BROWSER '192.168.0.1'") },              // Web browser (Router)
-    { MODKEY,            -1, XK_e,      spawn, SHCMD("emacsclient -c -a 'emacs'") },           // Emacs
-    { MODKEY,            -1, XK_t,      spawn, SHCMD("telegram-desktop") },                    // Telegram
-    { MODKEY|ShiftMask,  -1, XK_t,      spawn, SHCMD("signal-desktop --use-tray-icon") },      // Signal
-    { MODKEY,            -1, XK_y,      spawn, SHCMD("freetube") },                            // FreeTube
-    { MODKEY,            -1, XK_o,      spawn, SHCMD("notion-app") },                          // Notion
-    { MODKEY,            -1, XK_g,      spawn, SHCMD("gfclient") },                            // GameForge Client
-    { MODKEY|Mod1Mask,   -1, XK_h,      spawn, SHCMD("sxiv $HOME/horario") },                  // Timetable
-    { MODKEY,            -1, XK_n,      spawn, SHCMD("nitrogen") },                            // Nitrogen
-    { MODKEY,            -1, XK_m,      spawn, SHCMD("mailspring") },                          // Mailspring
+    { MODKEY,            -1, XK_Return, spawn, {.v = termcmd } },                                               // Terminal
+    { MODKEY|ShiftMask,  -1, XK_Return, spawn, SHCMD("pcmanfm") },                                              // File manager
+    { MODKEY,            -1, XK_w,      spawn, SHCMD("$BROWSER") },                                             // Web browser
+    { MODKEY,            -1, XK_r,      spawn, SHCMD("$BROWSER '192.168.0.1'") },                               // Web browser (Router)
+    { MODKEY,            -1, XK_e,      spawn, SHCMD("emacsclient -c -a 'emacs'") },                            // Emacs
+    { MODKEY,            -1, XK_t,      spawn, SHCMD("telegram-desktop") },                                     // Telegram
+    { MODKEY|ShiftMask,  -1, XK_t,      spawn, SHCMD("signal-desktop --use-tray-icon") },                       // Signal
+    { MODKEY,            -1, XK_y,      spawn, SHCMD("freetube") },                                             // FreeTube
+    { MODKEY,            -1, XK_o,      spawn, SHCMD("notion-app") },                                           // Notion
+    { MODKEY,            -1, XK_g,      spawn, SHCMD("gfclient") },                                             // GameForge Client
+    { MODKEY|Mod1Mask,   -1, XK_h,      spawn, SHCMD("sxiv $HOME/horario") },                                   // Timetable
+    { MODKEY,            -1, XK_n,      spawn, SHCMD("nitrogen") },                                             // Nitrogen
+    { MODKEY,            -1, XK_m,      spawn, SHCMD("mailspring") },                                           // Mailspring
 
     /* dmenu */
     { MODKEY,             -1,   XK_slash, spawn, SHCMD("$SCRIPTS/dmrun.sh") },             // dmenu
@@ -142,6 +141,7 @@ static Key keys[] = {
     { MODKEY|ControlMask, XK_l, XK_l,     spawn, SHCMD("$SCRIPTS/fish/dmlayouts.fish") },  // dmlayouts.fish
     { MODKEY,             -1,   XK_p,     spawn, SHCMD("$SCRIPTS/bash/passmenu") },        // passmenu (clipboard)
     { MODKEY|ShiftMask,   -1,   XK_p,     spawn, SHCMD("$SCRIPTS/bash/passmenu --type") }, // passmenu (xdotool)
+    { MODKEY|ControlMask, -1,   XK_p,     spawn, SHCMD("ar_gui") },                        // ar_gui
 
     /* Screenshots */
     { MODKEY,                -1, XK_s, spawn, SHCMD("$SCRIPTS/fish/screenshot.fish --area-clipboard") },   // Screenshot copy area
@@ -217,15 +217,15 @@ static Key keys[] = {
     { 0,         -1, 0x1008ff12, spawn, SHCMD("pamixer -t && polybar-msg hook volume 1") },               // Mute
 
     /* Brightness */
-    { 0,         -1, 0x1008ff03, spawn, SHCMD("$SCRIPTS/python/brightness.py -r -10 && kill -45 $(pidof dwmblocks)") }, // -10%
-    { 0,         -1, 0x1008ff02, spawn, SHCMD("$SCRIPTS/python/brightness.py -r 10 && kill -45 $(pidof dwmblocks)") },  // +10%
-    { ShiftMask, -1, 0x1008ff03, spawn, SHCMD("$SCRIPTS/python/brightness.py -s 0 && kill -45 $(pidof dwmblocks)") },   // 0%
-    { ShiftMask, -1, 0x1008ff02, spawn, SHCMD("$SCRIPTS/python/brightness.py -s 100 && kill -45 $(pidof dwmblocks)") }, // 100%
-    { MODKEY,    -1, 0x1008ff02, spawn, SHCMD("$SCRIPTS/python/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },  // 50%
-    { MODKEY,    -1, 0x1008ff03, spawn, SHCMD("$SCRIPTS/python/brightness.py -s 50 && kill -45 $(pidof dwmblocks)") },  // 50%
+    { 0,         -1, 0x1008ff03, spawn, SHCMD("$SCRIPTS/python/brightness.py -r -10 && polybar-msg hook brightness 1") }, // -10%
+    { 0,         -1, 0x1008ff02, spawn, SHCMD("$SCRIPTS/python/brightness.py -r 10 && polybar-msg hook brightness 1") },  // +10%
+    { ShiftMask, -1, 0x1008ff03, spawn, SHCMD("$SCRIPTS/python/brightness.py -s 0 && polybar-msg hook brightness 1") },   // 0%
+    { ShiftMask, -1, 0x1008ff02, spawn, SHCMD("$SCRIPTS/python/brightness.py -s 100 && polybar-msg hook brightness 1") }, // 100%
+    { MODKEY,    -1, 0x1008ff02, spawn, SHCMD("$SCRIPTS/python/brightness.py -s 50 && polybar-msg hook brightness 1") },  // 50%
+    { MODKEY,    -1, 0x1008ff03, spawn, SHCMD("$SCRIPTS/python/brightness.py -s 50 && polybar-msg hook brightness 1") },  // 50%
 
     /* Blue Light Filter */
-    { MODKEY, -1, XK_F1, spawn, SHCMD("redshift.sh && kill -45 $(pidof dwmblocks)") },  // Toggle redshift
+    { MODKEY, -1, XK_F1, spawn, SHCMD("redshift.sh && polybar-msg hook brightness 1") },  // Toggle redshift
 
     /* Dark Mode */
     { MODKEY, -1, XK_F2, spawn, SHCMD("dark_mode.sh") }, // Toggle dark mode
