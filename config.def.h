@@ -144,6 +144,7 @@ static Key keys[] = {
     { MODKEY|ControlMask, XK_l, XK_l,     spawn, SHCMD("$SCRIPTS/fish/dmlayouts.fish") },  // dmlayouts.fish
     { MODKEY,             -1,   XK_p,     spawn, SHCMD("$SCRIPTS/bash/passmenu") },        // passmenu (clipboard)
     { MODKEY|ShiftMask,   -1,   XK_p,     spawn, SHCMD("$SCRIPTS/bash/passmenu --type") }, // passmenu (xdotool)
+    { MODKEY|ControlMask, -1,   XK_p,     spawn, SHCMD("ar_gui") },                        // ar_gui
 
     /* Screenshots */
     { MODKEY,                -1, XK_s, spawn, SHCMD("$SCRIPTS/fish/screenshot.fish --area-clipboard") },   // Screenshot copy area
