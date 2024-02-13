@@ -54,22 +54,6 @@ I also use these fonts, which I'd rather not provide you with due to licensing (
 And a few utilities like `dwmblocks`, `redshift` or `mixer` and personal scripts that you can find on my [scripts repository](https://gitlab.com/Nero20/scripts).
 
 # Installation
-### Clone this repository
-HTTPS:
-
-`git clone https://gitlab.com/nero20/dwm`
-
-SSH:
-
-`git clone git@gitlab.com:Nero20/dwm.git`
-
-### Go into the folder and switch to the FreeBSD branch
-
-`cd dwm`
-
-`git checkout FreeBSD`
-
-### Build and install
 This requires root privileges and will install to `/usr/local/bin/dwm`
 
 `make`
